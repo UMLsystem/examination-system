@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
+    <link rel='stylesheet' href='/stylesheets/layout-style.css' />
+</head>
+
+<body>
+    <header>
+        <div id="nav">
+            <div class="logo">
+                <img src="/">
+            </div>
+            <ul class="nav-user">
+                <li>
+                    <a id="welcome">用户名</a>
+                </li>
+                <li><a href="/index" id="quit">退出</a></li>
+            </ul>
+        </div>
+    </header>
     {{{body}}}
-  </body>
+    <footer>
+        <div id="footer">
+            <p>在线考试系统 | 国内顶级在线答题网站</p>
+            <p>Copyright (C) | All Rights Reserved.XXXX 版权所有</p>
+        </div>
+    </footer>
+</body>
+
 </html>
