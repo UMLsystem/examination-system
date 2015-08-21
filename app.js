@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var teacher = require('./routes/teacher');
+var paperList = require('./routes/paperList');
 
 var app = express();
 
@@ -27,6 +28,8 @@ app.use(express.static(path.join(__dirname, 'bower_components')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/teacher', teacher);
+app.use('/paperList', paperList);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
