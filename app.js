@@ -56,5 +56,9 @@ app.use(function(err, req, res, next) {
   });
 });
 
+app.get('/score',function(req,res) {
+  
+});
+
 
 module.exports = app;
