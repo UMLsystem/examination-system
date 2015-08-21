@@ -1,148 +1,160 @@
 module.exports = {
-  up: function (migration, DataTypes) {
-    migration.createTable(
+  up: function (queryInterface, Sequelize) {
+    queryInterface.createTable(
     'student',{
       stu_id: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
       },
-      stu_name:DataTypes.STRING,
-      stu_num: DataTypes.INTEGER,
-      stu_pwd: DataTypes.STRING
+      stu_name:Sequelize.STRING,
+      stu_num: Sequelize.INTEGER,
+      stu_pwd: Sequelize.STRING
     });
 
-    migration.createTable(
+    queryInterface.createTable(
     'teacher',{
       tea_id: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
       },
-      tea_name:DataTypes.STRING,
-      tea_num: DataTypes.INTEGER,
-      tea_pwd: DataTypes.STRING
+      tea_name:Sequelize.STRING,
+      tea_num: Sequelize.INTEGER,
+      tea_pwd: Sequelize.STRING
     });
 
-    migration.createTable(
+    queryInterface.createTable(
     'manager',{
       man_id: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
       },
-      man_name:DataTypes.STRING,
-      man_num: DataTypes.INTEGER,
-      man_pwd: DataTypes.STRING
+      man_name:Sequelize.STRING,
+      man_num: Sequelize.INTEGER,
+      man_pwd: Sequelize.STRING
     });
 
-    migration.createTable(
+    queryInterface.createTable(
     'exam',{
       exa_id: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
       },
-      exa_name:DataTypes.STRING,
-      status: DataTypes.BOOLEAN
+      exa_name:Sequelize.STRING,
+      status: Sequelize.BOOLEAN
     });
 
-    migration.createTable(
+    queryInterface.createTable(
     'student_exam',{
       stu_exa_id: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
       },
-      stu_id:DataTypes.INTEGER,
-      exa_id: DataTypes.INTEGER,
-      status: DataTypes.BOOLEAN
+      stu_id:Sequelize.INTEGER,
+      exa_id: Sequelize.INTEGER,
+      status: Sequelize.BOOLEAN
     });
 
-    migration.createTable(
+    queryInterface.createTable(
     'teacher_exam',{
       tea_exa_id: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
       },
-      tea_id:DataTypes.INTEGER,
-      exa_id: DataTypes.INTEGER,
-      status: DataTypes.BOOLEAN
+      tea_id:Sequelize.INTEGER,
+      exa_id: Sequelize.INTEGER,
+      status: Sequelize.BOOLEAN
     });
 
-    migration.createTable(
+    queryInterface.createTable(
     'question',{
       que_id: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
       },
-      type_id:DataTypes.INTEGER,
-      tea_id: DataTypes.INTEGER,
-      que_content: DataTypes.STRING,
-      que_answer: DataTypes.STRING
+      typ_id:Sequelize.INTEGER,
+      tea_id: Sequelize.INTEGER,
+      que_content: Sequelize.STRING,
+      que_answer: Sequelize.STRING
     });
 
-    migration.createTable(
+    queryInterface.createTable(
+    'type',{
+      typ_id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+      },
+      typ_name: Sequelize.STRING,
+      score: Sequelize.INTEGER
+    });
+
+    queryInterface.createTable(
     'student_answer',{
       stu_ans_id: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
       },
-      stu_id:DataTypes.INTEGER,
-      pap_id: DataTypes.INTEGER,
-      que_id: DataTypes.INTEGER,
-      stu_answer: DataTypes.STRING
+      stu_id:Sequelize.INTEGER,
+      pap_id: Sequelize.INTEGER,
+      que_id: Sequelize.INTEGER,
+      stu_answer: Sequelize.STRING
     });
 
-    migration.createTable(
+    queryInterface.createTable(
     'paper',{
       pap_id: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
       },
-      tea_id:DataTypes.INTEGER,
-      exa_id: DataTypes.INTEGER
+      tea_id:Sequelize.INTEGER,
+      exa_id: Sequelize.INTEGER
     });
 
-    migration.createTable(
+    queryInterface.createTable(
     'question_paper',{
-      qp_id: {
-        type: DataTypes.INTEGER,
+      que_pap_id: {
+        type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
       },
-      que_id: DataTypes.INTEGER,
-      pap_id: DataTypes.INTEGER
+      que_id: Sequelize.INTEGER,
+      pap_id: Sequelize.INTEGER
     });
 
-    migration.createTable(
+    queryInterface.createTable(
     'score',{
       sco_id: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
       },
-      stu_id: DataTypes.INTEGER,
-      pap_id: DataTypes.INTEGER,
-      score:DataTypes.INTEGER
+      stu_id: Sequelize.INTEGER,
+      pap_id: Sequelize.INTEGER,
+      score:Sequelize.INTEGER
     });
   },
 
   down: function (queryInterface, Sequelize) {
-    migration.dropTable('student');
-    migration.dropTable('teacher');
-    migration.dropTable('manager');
-    migration.dropTable('exam');
-    migration.dropTable('student_exam');
-    migration.dropTable('teacher_exam');
-    migration.dropTable('question');
-    migration.dropTable('student_answer');
-    migration.dropTable('paper');
-    migration.dropTable('question_paper');
-    migration.dropTable('score');
+    queryInterface.dropTable('student');
+    queryInterface.dropTable('teacher');
+    queryInterface.dropTable('manager');
+    queryInterface.dropTable('exam');
+    queryInterface.dropTable('student_exam');
+    queryInterface.dropTable('teacher_exam');
+    queryInterface.dropTable('question');
+    queryInterface.dropTable('type');
+    queryInterface.dropTable('student_answer');
+    queryInterface.dropTable('paper');
+    queryInterface.dropTable('question_paper');
+    queryInterface.dropTable('score');
   }
 };
