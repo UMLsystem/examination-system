@@ -15,6 +15,12 @@
     "mysql": "^2.9.0",
     "sequelize": "^3.5.1",
     "sequelize-cli": "^1.7.4",
+    "express": "~4.13.1",
+    "hbs": "~3.1.0",
+    "jasmine": "^2.3.2",
+    "morgan": "~1.6.1",
+    "mysql": "^2.9.0",
+    "sequelize": "^3.6.0",
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
