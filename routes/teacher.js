@@ -3,12 +3,19 @@ var router = express.Router();
 var models = require('../models');
 var Exam = models.exam;
 
-Exam.findAll().then(function(data) {
-    console.log(data[1].dataValues);
-});
+
 
 router.get('/', function(req, res, next) {
-  res.render('teacher');
+    var array = [];
+    Exam.findAll().then(function(data) {
+        data.forEach(function(val) {
+            array.push(val.dataValues);
+        });
+    }).done(function() {
+        res.render('teacher', {
+            array: array
+        });
+    });
 });
 
 module.exports = router;
