@@ -20,6 +20,13 @@
             </tr>
         </thead>
         <tbody id="tbody">
+            {{#each array}}
+            <tr>
+                <td id="id">{{exa_id}}</td>
+                <td id="name">{{exa_name}}</td>
+                <td id="status">{{status}}</td>
+            </tr>
+            {{/each}}
         </tbody>
     </table>
 </div>
