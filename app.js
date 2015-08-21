@@ -7,9 +7,6 @@ var bodyParser = require('body-parser');
 
 var login = require('./routes/login');
 var users = require('./routes/users');
-var teacher = require('./routes/teacher');
-var paperList = require('./routes/paperList');
-var paper = require('./routes/paper');
 
 var app = express();
 
@@ -24,13 +21,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'bower_components')));
 
 app.use('/user', login);
 app.use('/users', users);
-app.use('/teacher', teacher);
-app.use('/paperList', paperList);
-app.use('/paper', paper);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -62,8 +55,6 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-app.listen(4000,function(){
-  console.log('hello');
-});
+
 
 module.exports = app;
