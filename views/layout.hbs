@@ -1,10 +1,45 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
+    <link rel='stylesheet' href='./stylesheets/layout-style.css'/>
+    <link rel="stylesheet" href="./stylesheets/left-navigation.css" >
+
+</head>
+
+<body>
+    <header>
+        <div id="top-nav">
+            <div class="logo">
+                <img src="/">
+            </div>
+            <ul class="nav-user">
+                <li>
+                    <a id="welcome">用户名</a>
+                </li>
+                <li><a href="/index" id="quit">退出</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="nav">
+    	<ul>
+    		<li class="on"><a href=''>首页</a></li>
+        	<li><a href=''>考试管理</a></li>
+        	<li><a href=''>密码管理</a></li>
+        </ul>
+        <div class="hover"></div>
+    </div>
     {{{body}}}
-  </body>
+<!--     <footer>
+    <div id="footer">
+        <p>在线考试系统 | 国内顶级在线答题网站</p>
+        <p>Copyright (C) | All Rights Reserved.XXXX 版权所有</p>
+    </div>
+</footer> -->
+</body>
+
+<script src="http://www.lanrenzhijia.com/ajaxjs/jquery.min.js"></script>
+<script type="text/javascript" src="./javascripts/left-navigation.js"></script>
+
 </html>
