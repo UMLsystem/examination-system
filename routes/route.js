@@ -5,4 +5,6 @@ exports.setRoutes = function(app) {
   app.use('/paperList', require('./routers/paperList'));
   app.use('/paper', require('./routers/paper'));
   app.use('/student', require('./routers/student-validate'));
+  app.use('/questionFill',require('./routers/add-question'));
+
 };
