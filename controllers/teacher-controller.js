@@ -8,8 +8,8 @@ TeacherController.prototype.getList = function(req, res, next) {
     var array = [];
 
     Exam.findAll().then(function(data) {
-        data.forEach(function(val) {
-            array.push(val.dataValues);
+        array = data.map(function(val) {
+            return val.dataValues;
         })
     }).done(function() {
         res.render('teacher', {
