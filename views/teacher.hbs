@@ -21,11 +21,12 @@
         <tbody id="tbody">
             {{#each array}}
             <tr>
-                <td name="id">{{exa_id}}</td>
-                <td name="name">{{exa_name}}</td>
-                <td name="status">{{status}}</td>
+                <td data-name="id">{{exa_id}}</td>
+                <td data-name="name">{{exa_name}}</td>
+                <td data-name="status">{{status}}<input type="button" id="check" value="查看"></td>
             </tr>
             {{/each}}
         </tbody>
     </table>
 </div>
+<script src="./javascripts/teacher.js"></script>
