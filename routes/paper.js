@@ -22,10 +22,13 @@ router.get('/', function(req, res, next) {
         Question.findById(val.dataValues.que_id).then(function(que) {
           console.log(que.dataValues);
           ques.push(que.dataValues);
-        }).done(function() {
-          res.render('paper')
-        })
-      });
+          Type.findById(que.dataValues.type_id).then(function(type){
+            console.log(type.dataValues);
+          });
+        });
+      })
+    }).done(function() {
+      res.render('paper')
     });
   });
 });
@@ -33,4 +36,7 @@ router.get('/', function(req, res, next) {
 //   res.render('paper');
 // });
 
+// function getPaperContent(type){
+//
+// }
 module.exports = router;
