@@ -1,20 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var models = require('../../models');
-var Exam = models.exam;
 
+var TeacherController =require('../../controllers/teacher');
+var teacherController = new TeacherController();
 
-router.get('/', function(req, res, next) {
-    var array = [];
-    Exam.findAll().then(function(data) {
-        data.forEach(function(val) {
-            array.push(val.dataValues);
-        });
-    }).done(function() {
-        res.render('teacher', {
-            array: array
-        });
-    });
-});
+router.get('/',teacherController.getList);
 
 module.exports = router;
