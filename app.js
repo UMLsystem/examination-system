@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
+var login = require('./routes/login');
 var users = require('./routes/users');
 var teacher = require('./routes/teacher');
 
@@ -24,7 +24,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'bower_components')));
 
-app.use('/', routes);
+app.use('/user', login);
 app.use('/users', users);
 app.use('/teacher', teacher);
 // catch 404 and forward to error handler
