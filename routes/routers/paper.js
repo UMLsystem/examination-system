@@ -9,7 +9,6 @@ var Type = models.type;
 router.get('/', function(req, res, next) {
   var ques = [];
   var exa_id = req.exa_id;
-  var exa_id = 1;
   Paper.findById(exa_id).then(function(data) {
     paper_id = data.dataValues.pap_id;
     console.log(paper_id);
@@ -26,9 +25,9 @@ router.get('/', function(req, res, next) {
             console.log(type.dataValues);
           });
         });
-      })
+      });
     }).done(function() {
-      res.render('paper')
+      res.render('paper');
     });
   });
 });
