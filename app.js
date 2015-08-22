@@ -5,7 +5,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var route = require('./routes/route');
-var addQuestion = require('./routes/add-question');
 var app = express();
 
 // view engine setup
@@ -24,7 +23,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'bower_components')));
 
 route.setRoutes(app);
-app.use('/questionFill',addQuestion);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
