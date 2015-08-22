@@ -1,5 +1,5 @@
 $(function() {
-    $('tbody td').on('click', function() {
+    $('.check').on('click', function() {
         var status = this.innerHTML.split('<')[0];
 
         if (status === 'false') {
