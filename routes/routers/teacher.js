@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var models = require('../models');
+var models = require('../../models');
 var Exam = models.exam;
+
 
 router.get('/', function(req, res, next) {
     var array = [];
