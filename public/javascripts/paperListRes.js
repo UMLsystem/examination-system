@@ -1,4 +1,5 @@
 $.cookie('stuId',1);
+
 var stuId = $.cookie('stuId');
 $(function () {
   console.log(stuId);
