@@ -1,16 +1,12 @@
 $(function() {
   $('#submit').on('click', function() {
     var username = $('#inputUsername').val();
-    var password = $('#inputPassword').val();
+    var password = $.md5($('#inputPassword').val());
+    alert(password);
     $.get('/user', {
       username: username,
       password: password
     }, function(resq) {
-      if (resq.stu_num === username && resq.stu_pwd === password) {
-        $.session.set('stuId', stu_id);
-      } else {
-        $('.label-username').html('用户名或密码错误,请重新输入!');
-      }
     });
   });
 });

@@ -1,5 +1,3 @@
-
-
 module.exports = function(sequelize, DataTypes) {
   var QuestionPaper = sequelize.define('question_paper', {
     qp_id: {

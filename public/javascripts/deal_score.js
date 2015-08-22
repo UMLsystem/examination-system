@@ -1,4 +1,5 @@
 //answerInfo之后上游会传过来
+var FormSerilizer = require('./form-serilizer.js');
 $(function(){
   $('#submit').on("click",function(answerInfo) {
     var form = $('form')[0];
