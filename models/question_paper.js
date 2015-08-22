@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
   var QuestionPaper = sequelize.define('question_paper', {
-    qp_id: {
+    que_pap_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true

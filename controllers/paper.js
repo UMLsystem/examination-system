@@ -4,10 +4,10 @@ var QuestionPaper = models.question_paper;
 var Question = models.question;
 var Type = models.type;
 
-function PaperController(){
+function PaperController() {
 
 }
-PaperController.prototype.getContent = function(){
+PaperController.prototype.getContent = function(req, res) {
   var ques = [];
   //var exa_id = req.exa_id;
   var exa_id = 1;
@@ -23,9 +23,9 @@ PaperController.prototype.getContent = function(){
         Question.findById(val.dataValues.que_id).then(function(que) {
           console.log(que.dataValues);
           ques.push(que.dataValues);
-          Type.findById(que.dataValues.type_id).then(function(type){
-            console.log(type.dataValues);
-          });
+          // Type.findById(que.dataValues.type_id).then(function(type) {
+          //   console.log(type.dataValues);
+          // });
         });
       })
     }).done(function() {
