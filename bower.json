@@ -14,6 +14,10 @@
   ],
   "dependencies": {
     "jquery": "~2.1.4",
+<<<<<<< HEAD
     "jquery-validate": "~1.14.0"
+=======
+    "bootstrap": "~3.3.5"
+>>>>>>> 17e1d10812c6e1eed512a9006712bdb93a9773c5
   }
 }
