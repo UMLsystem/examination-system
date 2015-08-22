@@ -7,7 +7,7 @@ module.exports = {
     queryInterface.renameColumn('teacher_exam', 'exam_id', 'exa_id');
     queryInterface.renameColumn('question', 'type_id', 'typ_id');
     queryInterface.renameColumn('student_answer', 's_ans_id', 'stu_ans_id');
-    queryInterface.renameColumn('question_paper', 'qp_id', 'que_pap_id');   
+    queryInterface.renameColumn('question_paper', 'qp_id', 'que_pap_id');
   },
 
   down: function (queryInterface, Sequelize) {

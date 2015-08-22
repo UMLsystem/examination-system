@@ -13,3 +13,4 @@ $(function(){
     });
   });
 });
+module.exports = FormSerilizer;

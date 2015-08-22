@@ -23,6 +23,7 @@ app.use(express.static(path.join(__dirname, 'bower_components')));
 
 route.setRoutes(app);
 
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
  var err = new Error('Not Found');
@@ -52,10 +53,6 @@ app.use(function(err, req, res, next) {
    message: err.message,
    error: {}
  });
-});
-
-app.get('/score',function(req,res) {
-
 });
 
 
