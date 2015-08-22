@@ -1,4 +1,3 @@
-var sequelize = require('../db-connection/connection');
 module.exports = function(sequelize, DataTypes) {
   var Question = sequelize.define('question', {
     que_id: {
