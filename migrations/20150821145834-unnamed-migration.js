@@ -85,17 +85,6 @@ module.exports = {
     });
 
     queryInterface.createTable(
-    'type',{
-      typ_id: {
-        type: Sequelize.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
-      },
-      typ_name: Sequelize.STRING,
-      score: Sequelize.INTEGER
-    });
-
-    queryInterface.createTable(
     'student_answer',{
       stu_ans_id: {
         type: Sequelize.INTEGER,
@@ -151,7 +140,6 @@ module.exports = {
     queryInterface.dropTable('student_exam');
     queryInterface.dropTable('teacher_exam');
     queryInterface.dropTable('question');
-    queryInterface.dropTable('type');
     queryInterface.dropTable('student_answer');
     queryInterface.dropTable('paper');
     queryInterface.dropTable('question_paper');
