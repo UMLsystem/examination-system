@@ -1,7 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/', function(req, res, next) {
+var PaperListQuery = require('../../controllers/paperList');
+var query = new PaperListQuery();
+
+router.get('/', function(req, res) {
+  console.log(req.query.stuId + '7777');
+  query.getList(req.query.stuId);
   res.render('paperList');
 });
 
