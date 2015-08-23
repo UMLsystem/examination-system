@@ -4,15 +4,13 @@ var QuestionPaper = models.question_paper;
 var Question = models.question;
 var Type = models.type;
 var contents = [];
+var types = [];
 
-
-function PaperController() {
-
-}
-
+function PaperController() {}
 
 PaperController.prototype.getContent = function(req, res) {
-  var exa_id = 1;
+  var exa_id = 1; //var exa_id = req.query.exa_id
+  getAllTypes();
   Paper.findById(exa_id).then(function(data) {
     return getPaperId(exa_id, data);
   }).then(function(data) {
@@ -21,9 +19,20 @@ PaperController.prototype.getContent = function(req, res) {
     return getQuestionContents(data);
   }).then(function(data) {
     var paperContent = getPaperContent(contents)
-      //  res.send(paperContent);
-    res.send(paperContent);
-  })
+    res.render('paper', {
+      blank: paperContent.blank,
+      single: paperContent.single,
+      multiple: paperContent.multiple
+    });
+  });
+}
+
+function getAllTypes() {
+  return Type.findAll().then(function(data) {
+    types = data.map(function(val) {
+      return val.dataValues;
+    });
+  });
 }
 
 function getPaperId(exa_id, data) {
@@ -32,20 +41,20 @@ function getPaperId(exa_id, data) {
     where: {
       pap_id: paper_id
     }
-  })
+  });
 }
 
 function getQuestionIds(data) {
   var question_ids = data.map(function(val) {
     return val.dataValues.que_id;
-  })
+  });
   return Question.findAll({
     where: {
       que_id: {
         $in: question_ids
       }
     }
-  })
+  });
 }
 
 function getQuestionContents(data) {
@@ -54,26 +63,32 @@ function getQuestionContents(data) {
       content: val.dataValues.que_content,
       type_id: val.dataValues.typ_id
     };
-  })
-
+  });
 }
 
 function getPaperContent(contents) {
-  var paperContent = {
-    'blank': [],
-    'single': [],
-    'mult': []
-  };
+  var paperContent = {};
   contents.forEach(function(val) {
-    if (val.type_id === 1) {
-      paperContent['blank'].push(val.content);
-    } else if (val.type_name === 2) {
-      paperContent[singleSelect].push(val.content);
-    } else if (val.type_name === 3) {
-      paperContent[mulSelect].push(val.content);
-    }
+    processinData(val, paperContent);
   });
   return paperContent;
+}
+
+function processinData(val, paperContent) {
+  types.forEach(function(type) {
+    if (type.typ_id === val.type_id) {
+      var key = type.typ_name;
+      var result = val.content.split('?');
+      paperContent[key] = paperContent[key] || [];
+      paperContent[key].push({
+        content: result[0],
+        'A': result[1],
+        'B': result[2],
+        'C': result[3],
+        'D': result[4]
+      });
+    }
+  });
 }
 
 module.exports = PaperController;
