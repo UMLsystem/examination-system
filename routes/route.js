@@ -4,4 +4,5 @@ exports.setRoutes = function(app) {
     app.use('/teacher',require('./routers/teacher'));
     app.use('/paperList',require('./routers/paperList'));
     app.use('/paper',require('./routers/paper'));
+    app.use('/student-validate',require('./routers/student-validate'));
 };
