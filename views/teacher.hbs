@@ -1,4 +1,3 @@
-{{!< layout}}
 <head>
     <link rel="stylesheet" href="./stylesheets/teacher.css">
     <link rel="stylesheet" href="./stylesheets/bootstrap.css">
@@ -24,7 +23,7 @@
             <tr>
                 <td data-id="id">{{exa_id}}</td>
                 <td data-id="name">{{exa_name}}</td>
-                <td data-id="status">{{status}}<input type="button" class="check" value="查看"></td>
+                <td data-id="status">{{status}}<input type="button" class="check" value="查看" data-status="{{status}}"></td>
             </tr>
             {{/each}}
         </tbody>

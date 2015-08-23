@@ -13,7 +13,8 @@ TeacherController.prototype.getList = function(req, res, next) {
         });
     }).done(function() {
         res.render('teacher', {
-            array: array
+            array: array,
+            layout: 'layoutT'
         });
     });
 };
