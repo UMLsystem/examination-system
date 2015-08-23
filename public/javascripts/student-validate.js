@@ -4,11 +4,11 @@ $(function() {
     // var password = $.md5($('#inputPassword').val());
     var password = $('#inputPassword').val();
     alert(password);
-    $.get('/student-validate', {
+    $.post('/student', {
       username: username,
       password: password
     }, function(resq) {
-      console.log(resq);
+      console.log("resq");
     });
   });
 });

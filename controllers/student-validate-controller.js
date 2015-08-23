@@ -5,7 +5,7 @@ function StudentValidateController() {
 
 }
 StudentValidateController.prototype.onValidate = function(req, res) {
-  var student = req.query;
+  var student = req.body;
   console.log(111111111111111111111111);
   var obj;
   Student.findAll({
