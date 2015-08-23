@@ -5,10 +5,11 @@ var Student = models.student;
 
 router.get('/', function(req, res, next) {
     var student = req.query;
-    Student.findAll({where:{stu_id:student.stu_id,}}).then(function(data) {
-        data.forEach(function(val) {
-            array.push(val.dataValues);
-        });
+    var obj;
+    Student.findAll({where:{stu_id:student.stu_id}}).then(function(data) {
+        if(data.length > 0 && data.stu_pwd === student.stu_pwd){
+
+        }
     }).done(function() {
         res.render('teacher', {
             array: array
