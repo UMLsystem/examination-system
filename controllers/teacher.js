@@ -10,12 +10,12 @@ TeacherController.prototype.getList = function(req, res, next) {
     Exam.findAll().then(function(data) {
         data.forEach(function(val) {
             array.push(val.dataValues);
-        })
+        });
     }).done(function() {
         res.render('teacher', {
             array: array
         });
     });
-}
+};
 
 module.exports = TeacherController;

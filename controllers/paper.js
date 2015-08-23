@@ -18,14 +18,14 @@ PaperController.prototype.getContent = function(req, res) {
   }).then(function(data) {
     return getQuestionContents(data);
   }).then(function(data) {
-    var paperContent = getPaperContent(contents)
+    var paperContent = getPaperContent(contents);
     res.render('paper', {
       blank: paperContent.blank,
       single: paperContent.single,
       multiple: paperContent.multiple
     });
   });
-}
+};
 
 function getAllTypes() {
   return Type.findAll().then(function(data) {
