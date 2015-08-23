@@ -4,46 +4,51 @@
   <link rel="stylesheet" href="./stylesheets/paper.css">
 </head>
 
-<div class="title">
-  <h1>数学
-    <h1>
-</div>
 <div class='context'>
   <form id='test-container'>
-
-    <h2>时间: 100 分钟</h2>
-    <h2> 得分:
-      <input type="text" id="score" />
-    </h2>
+    <div id="title">
+      <ul>
+        <li>时间: </li>
+        <input type="text" value='100分种' style='border-left:0px;border-top:0px;border-right:0px;border-bottom:1px ' />
+        <li> 得分:</li>
+        <input type="text" id="score" />
+      </ul>
+    </div>
     <div class="blank">
       <p>一 、填空题</p>
       {{#each blank}}
-        <li>{{content}}</li>
-        (
-        <input type="text" value=''>)
-
+        <br>{{content}}
+        <input type="text" value=''>
+        </br>
       {{/each}}
     </div>
     <div class="select">
       <p>二 、选择题</p>
       {{#each single}}
+        <br> {{content}}
         <br>
-        <li>{{content}}</li>
         <input type="radio" name= {{content}} value='A'>{{A}}
+        <br>
         <input type="radio" name= {{content}} value='B'>{{B}}
+        <br>
         <input type="radio" name= {{content}} value='C'>{{C}}
+        <br>
         <input type="radio" name= {{content}} value='D'>{{D}}
+        <br>
         <br>
       {{/each}}
     </div>
     <div class="mselect">
       <p>三 、多选题</p>
       {{#each multiple}}
+        <br> {{content}}
         <br>
-        <li>{{content}}</li>
         <input type="checkbox" name= {{content}} value='A'>{{A}}
+        <br>
         <input type="checkbox" name= {{content}} value='B'>{{B}}
+        <br>
         <input type="checkbox" name= {{content}} value='C'>{{C}}
+        <br>
         <input type="checkbox" name= {{content}} value='D'>{{D}}
         <br>
         <br>
