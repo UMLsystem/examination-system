@@ -4,9 +4,6 @@ var router = express.Router();
 var PaperController = require('../../controllers/paper');
 var paperController = new PaperController();
 
- router.get('/', paperController.getContent);
-// router.get('/',function(req,res,next){
-//   res.render('paper')
-// });
+router.get('/', paperController.getContent);
 
 module.exports = router;
