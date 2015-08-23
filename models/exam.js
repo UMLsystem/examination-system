@@ -1,3 +1,4 @@
+
 module.exports = function(sequelize, DataTypes) {
     var Exam = sequelize.define('exam', {
         exa_id: {
@@ -11,4 +12,4 @@ module.exports = function(sequelize, DataTypes) {
         timestamps: false
     });
     return Exam;
-};
+}

@@ -1,16 +1,14 @@
-function getStatus() {
-    var statusList = [];
-    $('table tbody tr').each(function() {
-        var row = $("td", this);
-        statusList.push({
-            status: row.eq(2).text().trim(),
-        });
-    });
-    return statusList;
-}
-
 $(function() {
-    $('#check').on('click', function() {
-        alert('hello');
+    $('tbody td').on('click', function() {
+        var status = this.innerHTML.split('<')[0];
+        var temp = status;
+        
+        $('.check').on('click', function() {
+            if (temp === 'false') {
+                alert('未开放！')
+            } else {
+                $(location).attr('href', '/');
+            }
+        });
     });
 });
