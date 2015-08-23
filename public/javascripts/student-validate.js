@@ -8,7 +8,11 @@ $(function() {
       username: username,
       password: password
     }, function(resq) {
-      console.log("resq");
+      if(resq.obj.status === '200'){
+
+      }else{
+        $('#label-password').val('用户名或密码错误!请重新输入...');
+      }
     });
   });
 });
