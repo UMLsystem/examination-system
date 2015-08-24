@@ -12,7 +12,6 @@ PaperController.prototype.getContent = function(req, res) {
   var exa_id = 1; //var exa_id = req.query.exa_id
   getAllTypes();
   Paper.findById(exa_id).then(function(data) {
-<<<<<<< b21e4e257d8393ce27b8c7ddbe308e03f87094f3
     return getPaperId(exa_id, data);
   }).then(function(data) {
     return getQuestionIds(data);
@@ -91,28 +90,6 @@ function processinData(val, paperContent) {
     }
   });
 }
-=======
-    paper_id = data.dataValues.pap_id;
-    console.log(paper_id);
-    QuestionPaper.findAll({
-      where: {
-        pap_id: paper_id
-      }
-    }).then(function(questions) {
-      questions.forEach(function(val) {
-        Question.findById(val.dataValues.que_id).then(function(que) {
-          console.log(que.dataValues);
-          ques.push(que.dataValues);
-          // Type.findById(que.dataValues.type_id).then(function(type) {
-          //   console.log(type.dataValues);
-          // });
-        });
-      });
-    }).done(function() {
-      res.render('paper');
-    });
-  });
-};
->>>>>>> add table"subject"
+
 
 module.exports = PaperController;
