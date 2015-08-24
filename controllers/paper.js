@@ -11,12 +11,11 @@ function PaperController() {}
 
 PaperController.prototype.show = function(req, res) {
   var exa_id = 1; //var exa_id = req.query.exa_id
-  getAllTypes();
+  Type.getAllTypes();
   Paper.findById(exa_id).then(function(data) {
-    return getPaperId(exa_id, data);
-      // return QuestionPaper.getQuestionIds(exa_id,data);
+    return QuestionPaper.getQuestionIds(exa_id, data);
   }).then(function(data) {
-    return getQuestionIds(data);
+    return Question.getQuestionContents(data)
   }).then(function(data) {
     return getQuestionContents(data);
   }).then(function(data) {
@@ -29,39 +28,12 @@ PaperController.prototype.show = function(req, res) {
   });
 };
 
-function getAllTypes() {
-  return Type.findAll().then(function(data) {
-    types = data.map(function(val) {
-      return val.dataValues;
-  });
-});
-}
 
-function getPaperId(exa_id, data) {
-  var paper_id = data.dataValues.pap_id;
-  return QuestionPaper.findAll({
-    where: {
-      pap_id: paper_id
-    }
-  });
-}
-
-function getQuestionIds(data) {
-  var question_ids = data.map(function(val) {
-    return val.dataValues.que_id;
-  });
-  return Question.findAll({
-    where: {
-      que_id: {
-        $in: question_ids
-      }
-    }
-  });
-}
 
 function getQuestionContents(data) {
   contents = data.map(function(val) {
     return {
+      questionId: val.dataValues.que_id,
       content: val.dataValues.que_content,
       type_id: val.dataValues.typ_id
     };
@@ -70,6 +42,7 @@ function getQuestionContents(data) {
 
 function getPaperContent(contents) {
   var paperContent = {};
+
   contents.forEach(function(val) {
     processinData(val, paperContent);
   });
@@ -84,6 +57,7 @@ function processinData(val, paperContent) {
       var result = val.content.split('?');
       paperContent[key] = paperContent[key] || [];
       paperContent[key].push({
+        questionId: val.questionId,
         content: result[0],
         'A': result[1],
         'B': result[2],

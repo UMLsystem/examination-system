@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     freezeTableName: true,
     timestamps: false,
-    ClassMethods: {
+    classMethods: {
       getQuestionIds: function(exa_id, data) {
         var paper_id = data.dataValues.pap_id;
         return QuestionPaper.findAll({
