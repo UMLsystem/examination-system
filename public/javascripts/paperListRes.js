@@ -6,9 +6,3 @@ $(function () {
 
   });
 });
-
-
-//
-// $('.startExam').on('click',function () {
-//
-// });
