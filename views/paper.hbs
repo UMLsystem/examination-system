@@ -3,7 +3,7 @@
 <head>
   <link rel="stylesheet" href="./stylesheets/paper.css">
 </head>
-
+<title>{{title}}</title>
 <div class='context'>
   <form id='test-container'>
     <div id="title">
@@ -14,11 +14,11 @@
         <input type="text" id="score" />
       </ul>
     </div>
-    <div class="blank">
+    <div class="blank" data-id=1>
       <p>一 、填空题</p>
       {{#each blank}}
         <br>{{content}}
-        <input type="text" value=''>
+        <input type="text" name= {{content}} value=''>
         </br>
       {{/each}}
     </div>
