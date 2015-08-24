@@ -68,17 +68,17 @@
           </li>
         </ul>
         <ul class="list-unstyled">
-          <form action="/questionSingle" method="post">
+          <form action="/insertSingle" method="post">
           <li> 请输入问题：&nbsp;&nbsp; </li>
           <li>
-            <input type="text" value="">
+            <input type="text" value="" name="question">
           </li>
           <li>请输入可选项:</li>
           <li>
-            <input type="text" value='A.'>&nbsp;&nbsp;&nbsp;
-            <input type="text" value='B.'>&nbsp;&nbsp;&nbsp;
-            <input type="text" value='C.'>&nbsp;&nbsp;&nbsp;
-            <input type="text" value='D.'>
+            <input type="text" value='A.' name="option0">&nbsp;&nbsp;&nbsp;
+            <input type="text" value='B.' name="option1">&nbsp;&nbsp;&nbsp;
+            <input type="text" value='C.' name="option2">&nbsp;&nbsp;&nbsp;
+            <input type="text" value='D.' name="option3">
           </li>
           <li>请选择答案：</li>
           <li>
@@ -114,24 +114,24 @@
           </li>
         </ul>
         <ul class="list-unstyled">
-          <form action="/questionmultiple" method="post">
+          <form action="/insertMultiple" method="post">
           <li> 请输入问题：&nbsp;&nbsp; </li>
           <li>
-            <input type="text" value="">
+            <input type="text" value="" name="question">
           </li>
           <li>请输入可选项:</li>
           <li>
-            <input type="text" value='A.'>&nbsp;&nbsp;&nbsp;
-            <input type="text" value='B.'>&nbsp;&nbsp;&nbsp;
-            <input type="text" value='C.'>&nbsp;&nbsp;&nbsp;
-            <input type="text" value='D.'>
+            <input type="text" value='A.' name='option0'>&nbsp;&nbsp;&nbsp;
+            <input type="text" value='B.' name='option1'>&nbsp;&nbsp;&nbsp;
+            <input type="text" value='C.' name='option2'>&nbsp;&nbsp;&nbsp;
+            <input type="text" value='D.' name='option3'>
           </li>
           <li>请选择答案：</li>
           <li>
-            <input type="checkbox" name='multipleChoice1' value='A'>A&nbsp;&nbsp;&nbsp;
-            <input type="checkbox" name='multipleChoice1' value='B'>B&nbsp;&nbsp;&nbsp;
-            <input type="checkbox" name='multipleChoice1' value='C'>C&nbsp;&nbsp;&nbsp;
-            <input type="checkbox" name='multipleChoice1' value='D'>D
+            <input type="checkbox" name='multipleChoice1' value='A' >A&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" name='multipleChoice1' value='B' >B&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" name='multipleChoice1' value='C' >C&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" name='multipleChoice1' value='D' >D
           </li>
           <li>  <input type="submit" value='提交' class="btn btn-info"></li>
           </form>

@@ -5,8 +5,10 @@ exports.setRoutes = function(app) {
   app.use('/paperList', require('./routers/paperList'));
   app.use('/paper', require('./routers/paper'));
   app.use('/student', require('./routers/student-validate'));
-  app.use('/questionFill',require('./routers/add-question'));
   app.use('/score',require('./routers/mark-exam'));
+  app.use('/insertFill', require('./routers/add-fillBlank.js'));
+  app.use('/insertMultiple', require('./routers/add-single.js'));
+  app.use('/insertSingle', require('./routers/add-multiple.js'));
 
 
 
