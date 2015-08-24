@@ -12,8 +12,8 @@ module.exports = {
       }
     );
 
-    migration.addColumn('question','sub_id',Sequelize.INTEGER);
-    migration.addColumn('exam','sub_id',Sequelize.INTEGER);
+    queryInterface.addColumn('question','sub_id',Sequelize.INTEGER);
+    queryInterface.addColumn('exam','sub_id',Sequelize.INTEGER);
   },
 
 
