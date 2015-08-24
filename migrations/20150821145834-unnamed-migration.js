@@ -64,7 +64,7 @@ module.exports = {
       tea_exa_id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
-        autoIncrement: true
+        autoIn3crement: true
       },
       tea_id:Sequelize.INTEGER,
       exa_id: Sequelize.INTEGER,

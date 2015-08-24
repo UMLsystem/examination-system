@@ -9,7 +9,17 @@ module.exports = function(sequelize, DataTypes) {
     pap_id: DataTypes.INTEGER
   }, {
     freezeTableName: true,
-    timestamps: false
+    timestamps: false,
+    classMethods: {
+      getQuestionIds: function(exa_id, data) {
+        var paper_id = data.dataValues.pap_id;
+        return QuestionPaper.findAll({
+          where: {
+            pap_id: paper_id
+          }
+        });
+      }
+    }
   });
   return QuestionPaper;
 };
