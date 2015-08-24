@@ -6,8 +6,13 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var route = require('./routes/route');
 var app = express();
+var hbs = require('express-hbs');
 
 // view engine setup
+app.engine('hbs', hbs.express4({
+  partialsDir: __dirname + '/views/'
+}));
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
@@ -54,7 +59,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-app.listen(4000,function(){
-  console.log('hello');
-});
+
 module.exports = app;
