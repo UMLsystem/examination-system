@@ -1,5 +1,8 @@
+<<<<<<< b21e4e257d8393ce27b8c7ddbe308e03f87094f3
 
 
+=======
+>>>>>>> add table"subject"
 var fs        = require('fs');
 var path      = require('path');
 var Sequelize = require('sequelize');
