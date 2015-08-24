@@ -1,7 +1,9 @@
 {{!< layout}}
-<head>
+
+{{#contentFor "inputFile"}}
   <link rel="stylesheet" href="./stylesheets/paper.css">
-</head>
+{{/contentFor}}
+
 <div class='context'>
   <form id='test-container'>
     <div id="title">
@@ -12,7 +14,7 @@
         <input type="text" id="score" />
       </ul>
     </div>
-    <div class="blank" >
+    <div class="blank">
       <p>一 、填空题</p>
       {{#each blank}}
         <h4>{{content}}</h4>
@@ -20,12 +22,10 @@
         </br>
       {{/each}}
     </div>
-    <div class="select" >
+    <div class="select">
       <p>二 、选择题</p>
       {{#each single}}
-      <h4 >{{content}}</h4>
-        <!-- <br> {{content}}
-        <br> -->
+        <h4>{{content}}</h4>
         <input type="radio" name= {{questionId}} value='A'>{{A}}
         <br>
         <input type="radio" name= {{questionId}} value='B'>{{B}}
@@ -37,10 +37,10 @@
         <br>
       {{/each}}
     </div>
-    <div class="mselect" >
+    <div class="mselect">
       <p>三 、多选题</p>
       {{#each multiple}}
-        <br> {{content}}
+        <h4> {{content}}</h4>
         <br>
         <input type="checkbox" name= {{questionId}} value='A'>{{A}}
         <br>

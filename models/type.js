@@ -12,11 +12,7 @@ module.exports = function(sequelize, DataTypes) {
     timestamps: false,
     classMethods: {
       getAllTypes: function() {
-        return Type.findAll().then(function(data) {
-          types = data.map(function(val) {
-            return val.dataValues;
-          });
-        });
+        return Type.findAll()
       }
     }
   });
