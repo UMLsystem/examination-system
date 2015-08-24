@@ -1,4 +1,3 @@
-
 module.exports = function(sequelize, DataTypes) {
   var Paper = sequelize.define('paper', {
     pap_id: {

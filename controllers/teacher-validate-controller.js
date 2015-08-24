@@ -1,15 +1,16 @@
 var models = require('../models');
-var Student = models.student;
+var Teacher = models.teacher;
 
-function StudentValidateController() {}
+function TeacherValidateController() {}
 
-StudentValidateController.prototype.onValidate = function(req, res) {
-  var student = req.body;
+TeacherValidateController.prototype.onValidate = function(req, res) {
+  var teacher = req.body;
+  console.log(req);
   var obj;
-  Student.findOne({
+  Teacher.findOne({
     where: {
-      student_num: student.username,
-      student_pwd: student.password
+      teacher_num: teacher.teacher_num,
+      teacher_password: teacher.teacher_password
     }
   }).then(function(data) {
     if (data.length > 0) {
@@ -31,4 +32,4 @@ StudentValidateController.prototype.onValidate = function(req, res) {
   });
 };
 
-module.exports = StudentValidateController;
+module.exports = TeacherValidateController;
