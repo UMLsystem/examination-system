@@ -14,7 +14,7 @@ TeacherController.prototype.getList = function(req, res, next) {
     }).done(function() {
         res.render('teacher', {
             array: array,
-            layout: 'layoutT'
+            layout: 'teacher-layout'
         });
     });
 };
