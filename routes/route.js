@@ -6,5 +6,8 @@ exports.setRoutes = function(app) {
   app.use('/paper', require('./routers/paper'));
   app.use('/student', require('./routers/student-validate'));
   app.use('/questionFill',require('./routers/add-question'));
+  app.use('/score',require('./routers/mark-exam'));
+
+
 
 };

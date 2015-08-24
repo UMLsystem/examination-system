@@ -1,4 +1,4 @@
-//answerInfo之后上游会传过来
+//answerInfo之后上游会传过来,先假设其存在
 var FormSerilizer = require('./form-serilizer.js');
 $(function(){
   $('#submit').on("click",function(answerInfo) {
