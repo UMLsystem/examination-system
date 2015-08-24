@@ -7,8 +7,7 @@ module.exports = {
           primaryKey: true,
           autoIncrement: true
         },
-        que_id: Sequelize.INTEGER,
-        exa_id: Sequelize.INTEGER
+        sub_name: Sequelize.INTEGER,
       }
     );
 
