@@ -1,7 +1,7 @@
 var models = require('../models');
 var GetScore = require('./get-score');
-var Type = models.type;
-var Question = models.question;
+var Type = models.Types;
+var Question = models.Questions;
 
 function ScoreController() {
 
@@ -17,7 +17,7 @@ ScoreController.prototype.markExam = function(req, res, next) {
 
 //现在answerInfo信息不全。。重新凑answerInfo,需要获得题号，题答案，类型，分数。。。。
 
-function getTrueAnser(answerInfo) {  
+function getTrueAnser(answerInfo) {
   var names = answerInfo.map(function(val) {
     return val.name;
   });

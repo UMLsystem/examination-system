@@ -1,5 +1,5 @@
 var models = require('../models');
-var Student = models.student;
+var Student = models.Students;
 
 function StudentValidateController() {}
 

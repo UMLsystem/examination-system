@@ -1,9 +1,11 @@
 var Blank = require('./blank');
 var Multiple = require('./multiple');
 var SingleChoice = require('./single-choice');
+
 function GetScore() {
 
 }
+
 GetScore.prototype.getResult = function(answer, trueAnswer) {
   var result = 0;
   for (var i = 0; i < answer.length; i++) {
@@ -20,8 +22,8 @@ GetScore.prototype.getResult = function(answer, trueAnswer) {
     var exerciesSingle = new SingleChoice(answer[i].name, answer[i].value);
     result += exerciesSingle.mark(trueAnswer);
   }
-};
-return result;
+
+  return result;
 };
 
 module.exports = GetScore;
