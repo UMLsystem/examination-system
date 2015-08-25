@@ -1,16 +1,22 @@
 module.exports = function(sequelize, DataTypes) {
-  var StudentExam = sequelize.define('student_exam', {
-    stu_exa_id: {
+  var StudentExam = sequelize.define('StudentExam', {
+    id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
-    stu_id: DataTypes.INTEGER,
-    exa_id: DataTypes.INTEGER,
-    status: DataTypes.BOOLEAN,
+    studentId: DataTypes.INTEGER,
+    examId: DataTypes.INTEGER,
+    status: DataTypes.BOOLEAN
   }, {
     freezeTableName: true,
-    timestamps: false
+    timestamps: false,
+    classMethods:{
+      associate:function(modules) {
+
+
+      }
+    }
   });
   return StudentExam;
 };
