@@ -7,37 +7,19 @@
 </script>
    <div class="" align="left">
    <table>
-    <table>
-       <thead align="left">
-         <th><font size=5>已考科目</font></th>
-       </thead>
-       <tbody>
-        {{#each exams.examed}}
-        <tr data-id={{exa_id}}>
-          <td>{{exa_name}}</td>
-           <td>
-             <button type="button" name="button" class="startExam">开始考试</button>
-           </td>
-         </tr>
+    <thead>
+      <th>考试编号</th>
+      <th>考试名称</th>
+      <th>考试状态</th>
+    </thead>
+    <tbody id="tbody">
+        {{#each examList}}
+        <tr>
+            <td data-id="id">{{examId}}</td>
+            <td data-id="name">{{examName}}</td>
+            <td data-id="status">{{status}}<input type="button" class="check" value="开始考试" data-status="{{status}}"></td>
+        </tr>
         {{/each}}
-       </tbody>
-     </table>
-    <table>
-    <table>
-       <thead align="left">
-         <th><font size=5>未考科目</font></th>
-       </thead>
-       <tbody>
-        {{#each exams.toexam}}
-        <tr data-id={{exa_id}}>
-          <td>{{exa_name}}</td>
-           <td>
-             <button type="button" name="button">查看成绩</button>
-           </td>
-             <button type="button" name="button">查看试卷</button>
-           </td>
-         </tr>
-        {{/each}}
-       </tbody>
-     </table>
-   </div>
+    </tbody>
+   </table>
+  </div>
