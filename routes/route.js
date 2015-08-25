@@ -1,4 +1,4 @@
-xports.setRoutes = function(app) {
+exports.setRoutes = function(app) {
   app.use('/student-index', require('./routers/student-index'));
   app.use('/teacher-index', require('./routers/teacher-index'));
   app.use('/users', require('./routers/users'));
