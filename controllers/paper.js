@@ -10,7 +10,7 @@ function PaperController() {}
 
 
 PaperController.prototype.show = function(req, res) {
-  var exa_id = 1; //var exa_id = req.query.exa_id
+  var examId = 1; //var exa_id = req.query.exa_id
   getAllTypes();
   Paper.findById(exa_id).then(function(data) {
     return QuestionPaper.getQuestionIds(exa_id, data);
