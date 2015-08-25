@@ -1,5 +1,5 @@
 var models = require('../models');
-var StudentExam = models.student_exam;
+var StudentExam = models.studentExam;
 var Exam = models.exam;
 
 

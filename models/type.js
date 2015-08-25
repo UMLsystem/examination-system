@@ -1,11 +1,11 @@
 module.exports = function(sequelize, DataTypes) {
   var Type = sequelize.define('type', {
-    typ_id: {
+    id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
-    typ_name: DataTypes.STRING,
+    typeName: DataTypes.STRING,
     score: DataTypes.INTEGER
   }, {
     freezeTableName: true,
