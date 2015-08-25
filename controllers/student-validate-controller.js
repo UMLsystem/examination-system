@@ -6,23 +6,16 @@ function StudentValidateController() {}
 StudentValidateController.prototype.onValidate = function(req, res) {
   var student = req.body;
   var obj;
-  Student.findOne({
+  Student.findAll({
     where: {
-      student_num: student.username,
-      student_pwd: student.password
+      stu_num: student.username,
+      stu_pwd: student.password
     }
   }).then(function(data) {
     if (data.length > 0) {
-      obj = {
-        status: 200,
-        message: 'success',
-        data: data[0].dataValues
-      };
+      obj={status:200,message:'success',data:data[0].dataValues};
     } else {
-      obj = {
-        status: 404,
-        message: 'fail'
-      };
+      obj={status:404,message:'fail'};
     }
   }).done(function() {
     res.send({
