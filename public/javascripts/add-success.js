@@ -1,3 +1,8 @@
-$("#fan").onclick = function(){
-  location.href = "add-question";
-};
+$(function() {
+
+  $("#back").on("click", function() {
+
+
+    location.href = "addQuestion";
+  });
+});
