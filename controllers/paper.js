@@ -13,7 +13,7 @@ PaperController.prototype.show = function(req, res) {
   var examId = 1; //var exa_id = req.query.exa_id
   getAllTypes();
   Paper.findById(examId).then(function(data) {
-    return QuestionPaper.getQuestionIds(examId, data);
+    return QuestionPaper.getQuestionIds(data);
   }).then(function(data) {
     return Question.getQuestionContents(data);
   }).then(function(data) {

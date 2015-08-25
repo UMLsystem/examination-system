@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
     freezeTableName: true,
     timestamps: false,
     classMethods: {
-      getQuestionIds: function(examId, data) {
+      getQuestionIds: function(data) {
         var paperId = data.dataValues.paperId;
         return QuestionPaper.findAll({
           where: {
