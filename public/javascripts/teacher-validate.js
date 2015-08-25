@@ -2,16 +2,13 @@ function usernameValidate() {
   var username = $('#inputUsername').val();
   var arr = username.split('');
   var flag = true;
-  console.log(arr[0].charCodeAt());
   arr.forEach(function(val) {
     if (!((val.charCodeAt() >= 48 && val.charCodeAt() <= 57) || (val.charCodeAt() >= 96 && val.charCodeAt() <= 105))) {
       flag = false;
     }
   });
-  console.log(flag);
   return flag;
 }
-
 
 $(function() {
   $('#submit').on('click', function() {
@@ -37,20 +34,20 @@ $(function() {
       $('#inputUsername').val('');
       $('.label-username').focus();
     } else {
-      $.post('/student-validate', {
+      $.post('/teacher-validate', {
         username: username,
         password: password
       }, function(resq) {
         if (resq.obj.status === 200) {
-          $.cookie('username', resq.obj.data.stu_num, {
+          $.cookie('username', resq.obj.data.tea_num, {
             expires: 1,
             path: '/'
           });
-          $.cookie('password', resq.obj.data.stu_pwd, {
+          $.cookie('password', resq.obj.data.tea_pwd, {
             expires: 1,
             path: '/'
           });
-          $.cookie('userid', resq.obj.data.stu_id, {
+          $.cookie('userid', resq.obj.data.tea_id, {
             expires: 1,
             path: '/'
           });

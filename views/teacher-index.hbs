@@ -1,0 +1,27 @@
+<head>
+  <link href="./stylesheets/login.css" rel="stylesheet">
+  <script src='./jquery/dist/jquery.md5.js'></script>
+</head>
+
+<body>
+  <div class="container">
+    <h2 class="sign-title">在线考试系统</h2>
+    <div class="sign-label">
+      <form class="form-signin">
+        <h2 class="form-signin-heading">Please Sign in</h2>
+        <label for="inputUsername" class="label-username"></label>
+        <input type="text" id="inputUsername" class="form-control" placeholder="Username" required="用户名不能为空!" autofocus>
+        <p>
+          <label for="inputPassword" class="label-password"></label>
+          <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="密码不能为空!">
+          <br>
+          <button class="btn btn-lg btn-block" type="button" id='submit'>sign in</button>
+          <br>
+      </form>
+    </div>
+  </div>
+  <script src='./javascripts/teacher-validate.js'></script>
+  <script src='./javascripts/jquery-cookie.js'></script>
+</body>
+
+</html>
