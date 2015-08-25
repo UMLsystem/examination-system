@@ -20,7 +20,7 @@ Multiple.prototype.mark = function(trueAnswer) {
   if (that.value.length === keyItem[0].value.length) {
     finalScore = keyItem[0].score;
   } else {
-    finalScore = parseInt(keyItem[0].score/2);
+    finalScore = parseInt(keyItem[0].score / 2);
   }
   return finalScore;
 };

@@ -1,4 +1,4 @@
-exports.setRoutes = function(app) {
+xports.setRoutes = function(app) {
   app.use('/student-index', require('./routers/student-index'));
   app.use('/teacher-index', require('./routers/teacher-index'));
   app.use('/users', require('./routers/users'));
@@ -12,7 +12,5 @@ exports.setRoutes = function(app) {
   app.use('/password',require('./routers/password'));
   app.use('/insertMultiple', require('./routers/add-multiple.js'));
   app.use('/insertSingle', require('./routers/add-single.js'));
-
-
-
+  app.use('/password',require('./routers/password'));
 };

@@ -15,9 +15,9 @@ ScoreController.prototype.markExam = function(req, res, next) {
   res.send(result);
 };
 
-//现在answerInfo信息不全。。重新凑answerInfo。。。。
+//现在answerInfo信息不全。。重新凑answerInfo,需要获得题号，题答案，类型，分数。。。。
 
-function getTrueAnser(answerInfo) {
+function getTrueAnser(answerInfo) {  
   var names = answerInfo.map(function(val) {
     return val.name;
   });
@@ -39,6 +39,7 @@ function getTrueAnser(answerInfo) {
 }
 
 module.exports = ScoreController;
+}
 
 
 
