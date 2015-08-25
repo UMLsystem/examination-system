@@ -15,46 +15,25 @@ ScoreController.prototype.markExam = function(req, res, next) {
   res.send(result);
 };
 
-//现在answerInfo信息不全。。重新凑answerInfo,需要获得题号，题答案，类型，分数。。。。
-
-function getTrueAnser(answerInfo) {  
+function getTrueAnser(answerInfo) {
   var names = answerInfo.map(function(val) {
     return val.name;
   });
   Type.findAll({
     where: {
-      type_name: {
+      typeName: {
         $in: names
       }
     }
   }).then(function(data) {
-    var type_scores = data.map(function(val) {
+    var typeScores = data.map(function(val) {
       return val.score;
     });
   });
   for (var k = 0; k < answerInfo.length; k++) {
-    answerInfo[k].score = type_scores[k];
+    answerInfo[k].score = typeScores[k];
   }
   return answerInfo;
 }
 
 module.exports = ScoreController;
-}
-
-
-
-
-//   var questionIds = answerInfo.map(function(val){
-//     return val.questionId;
-//   });
-//   Question.findAll({
-//     where:{que_id:{
-//       $in:questionIds
-//     }
-//   }
-// }).then(functino(data){
-//   var typeItds = data.map(function(val){
-//     return val.typeId;
-//   });
-//   // var questionVaule
-// });
