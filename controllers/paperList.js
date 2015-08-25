@@ -1,42 +1,97 @@
 var models = require('../models');
-var StudentExam = models.StudentExam;
+var StudentExam = models.student_exam;
 var Exam = models.exam;
 
 
 function PaperListQuery() {
-
+  // var exams = [];
 }
 
-PaperListQuery.prototype.getList = function(stu_id) {
-  var exams = [];
-  var examed, toexam;
-  exams.examed = StudentExam.findAll({
+// PaperListQuery.prototype.getExamedList = function(req, res, next) {
+//   var exams = [];
+//   var examList = {};
+//   StudentExam.findAll({
+//     where : {
+//       studentId : req.studentId
+//     }
+//   }).then(function(data) {
+//     var examIds = data.map(function (val) {
+//       examList.examId = val.examId;
+//       examList.status = val.status;
+//       return val.examId;
+//     });
+//     Exam.findAll({
+//       where : {
+//         id : {
+//           $in : examIds
+//         }
+//       }
+//     }).then(function(data) {
+//       var examList = data.map(function(val) {
+//         examList.examName = val.examName;
+//         return examList;
+//       })
+//       res.render('paperList',{examList:examList});
+//     })
+//   });
+// }
+
+PaperListQuery.prototype.getExamedList = function(req, res, next) {
+  var exams = {
+    examed: [],
+    toexam: []
+  };
+  var singleExamed = {};
+  StudentExam.findAll({
     where: {
-      stu_id: 1
+      stu_id: 1,
+      status: true
     }
   }).then(function(data) {
-    console.log(data);
-  })
-};
-
+    var examIds = data.map(function(val) {
+      return val.exa_id;
+    });
+    Exam.findAll({
+      where: {
+        exa_id: {
+          $in: examIds
+        }
+      }
+    }).then(function(data) {
+      data.map(function(val) {
+        singleExamed.exa_name = val.exa_name;
+        singleExamed.exa_id = val.exa_id;
+        return singleExamed;
+      })
+      exams.examed.push(singleExamed);
+    })
+    StudentExam.findAll({
+      where: {
+        stu_id: 1,
+        status: false
+      }
+    }).then(function(data) {
+      var examIds = data.map(function(val) {
+        return val.exa_id;
+      });
+      Exam.findAll({
+        where: {
+          exa_id: {
+            $in: examIds
+          }
+        }
+      }).then(function(data) {
+        data.map(function(val) {
+          singleExamed.exa_name = val.exa_name;
+          singleExamed.exa_id = val.exa_id;
+          return singleExamed;
+        })
+        exams.toexam.push(singleExamed);
+        console.log(exams);
+        return exams;
+        res.render('/paperList',{exams:exams});
+      })
+    });
+  });
+}
 module.exports = PaperListQuery;
-
-// router.get('/paperList', function() {
-//   var stuId = req.query.stuId;
-//   var stuId = 1;
-//   var examed, toexam;
-//   var sql = "select exam.exa_id, exa_name from exam,student_exam where stu_id=" + stuId + "and exam.status = 1";
-//   conn.query(sql, function(err, rows, fields) {
-//     if (err) throw err;
-//     exams.examed = rows;
-//   });
-//   var sql = "select exam.exa_id, exa_name from exam,student_exam where stu_id=" + stuId + "and exam.status = 0";
-//   conn.query(sql, function(err, rows, fields) {
-//     if (err) throw err;
-//     exams.toexam = rows;
-//   });
-//   res.render('paperList', {
-//     exams: exams
-//   });
-//   console.log(exams);
-// });
