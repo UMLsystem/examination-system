@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var QuestionPaper = sequelize.define('QuestionPapers', {
+  var QuestionPaper = sequelize.define('QuestionPaper', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -8,16 +8,14 @@ module.exports = function(sequelize, DataTypes) {
     questionId: DataTypes.INTEGER,
     paperId: DataTypes.INTEGER
   }, {
-    freezeTableName: true,
     timestamps: false,
     classMethods: {
-      getQuestionIds: function(data) {
-        var paperId = data.dataValues.id;
-        return QuestionPaper.findAll({
-          where: {
-            paperId: paperId
+      associate: function(model) {
+        QuestionPaper.hasMany(model.Question, {
+          foreignKey: {
+            name: 'id'
           }
-        });
+        })
       }
     }
   });

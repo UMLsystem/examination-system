@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Type = sequelize.define('Types', {
+  var Type = sequelize.define('Type', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -8,7 +8,6 @@ module.exports = function(sequelize, DataTypes) {
     typeName: DataTypes.STRING,
     score: DataTypes.INTEGER
   }, {
-    freezeTableName: true,
     timestamps: false,
     classMethods: {
       getAllTypes: function() {

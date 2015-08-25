@@ -1,8 +1,9 @@
 var models = require('../models');
-var Paper = models.Papers;
-var QuestionPaper = models.QuestionPapers;
-var Question = models.Questions;
-var Type = models.Types;
+var Sequelize = require('sequelize')
+var Paper = models.Paper;
+var QuestionPaper = models.QuestionPaper;
+var Question = models.Question;
+var Type = models.Type;
 var contents = [];
 var types = [];
 
@@ -13,18 +14,29 @@ getAllTypes();
 PaperController.prototype.show = function(req, res) {
   var examId = 1; //var exa_id = req.query.exa_id
   Paper.findById(examId).then(function(data) {
-    return QuestionPaper.getQuestionIds(data);
-  }).then(function(data) {
-    return Question.getQuestionContents(data);
-  }).then(function(data) {
-    var paperContent = getQuestionContents(data);
-    res.render('paper', {
-      blank: paperContent.blank,
-      single: paperContent.single,
-      multiple: paperContent.multiple
-    });
+    return QuestionPaper.findAll({
+      where: {
+        paperId: data.dataValues.id
+      },
+      include: [{
+        model: Question,
+        where: {
+          id: Sequelize.col('QuestionPaper.questionId')
+        }
+      }]
+    }).then(function(data) {
+      var questions = data.map(function(val) {
+        return val.dataValues.Questions[0].dataValues;
+      })
+      var paperContent = getQuestionContents(questions);
+      res.render('paper', {
+        blank: paperContent.blank,
+        single: paperContent.single,
+        multiple: paperContent.multiple
+      });
+    })
   });
-};
+}
 
 function getAllTypes() {
   Type.getAllTypes().then(function(data) {
@@ -36,20 +48,21 @@ function getAllTypes() {
 
 function getQuestionContents(data) {
   var paperContent = {};
+
   data.map(function(val) {
     return {
-      questionId: val.dataValues.questionId,
-      question: val.dataValues.question,
-      typeId: val.dataValues.typeId
+      questionId: val.questionId,
+      question: val.question,
+      typeId: val.typeId
     };
   }).forEach(function(val) {
-    processinData(val, paperContent);
+    processData(val, paperContent);
   });
+
   return paperContent;
 }
 
-function processinData(val, paperContent) {
-  
+function processData(val, paperContent) {
   types.forEach(function(type) {
     if (type.id === val.typeId) {
       var key = type.typeName;
