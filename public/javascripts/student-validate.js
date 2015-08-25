@@ -29,12 +29,13 @@ $(function() {
       $('#inputPassword').val('');
       $('#inputUsername').val('');
       $('.label-username').focus();
-    }  if (usernameValidate()) {
+    }
+    if (usernameValidate()) {
       $('.label-username').html('用户名不合法!请重新输入...');
       $('#inputPassword').val('');
       $('#inputUsername').val('');
       $('.label-username').focus();
-    }else{
+    } else {
       $.post('/student-validate', {
         username: username,
         password: password

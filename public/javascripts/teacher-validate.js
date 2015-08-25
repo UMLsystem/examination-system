@@ -15,9 +15,9 @@ function usernameValidate() {
 
 $(function() {
   $('#submit').on('click', function() {
-    var username = $('#inputUsername').val();
+    var teacher_num = $('#inputUsername').val();
     // var password = $.md5($('#inputPassword').val());
-    var password = $('#inputPassword').val();
+    var teacher_password = $('#inputPassword').val();
     if (username === '') {
       $('.label-username').html('用户名不能为空!');
       $('#inputPassword').val('');
@@ -38,19 +38,19 @@ $(function() {
       $('.label-username').focus();
     } else {
       $.post('/teacher-validate', {
-        username: username,
-        password: password
+        teacher_num: teacher_num,
+        teacher_password: teacher_password
       }, function(resq) {
         if (resq.obj.status === 200) {
-          $.cookie('username', resq.obj.data.tea_num, {
+          $.cookie('teacher_num', resq.obj.data.teacher_num, {
             expires: 1,
             path: '/'
           });
-          $.cookie('password', resq.obj.data.tea_pwd, {
+          $.cookie('teacher_password', resq.obj.data.teacher_password, {
             expires: 1,
             path: '/'
           });
-          $.cookie('userid', resq.obj.data.tea_id, {
+          $.cookie('teacher_id', resq.obj.data.teacher_id, {
             expires: 1,
             path: '/'
           });
