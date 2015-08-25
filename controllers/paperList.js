@@ -29,10 +29,10 @@ PaperListQuery.prototype.getExamedList = function(req, res, next) {
       var examList = data.map(function(val) {
         examList.examName = val.examName;
         return examList;
-      })
+      });
       res.render('paperList',{examList:examList});
-    })
+    });
   });
-}
+};
 
 module.exports = PaperListQuery;

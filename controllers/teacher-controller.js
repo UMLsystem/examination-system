@@ -1,7 +1,7 @@
 var models = require('../models');
 var Sequelize = require('sequelize');
 var Exam = models.Exams;
-var TeacherExam = models.teacherExam;
+var TeacherExam = models.TeacherExams;
 
 function TeacherController() {
 

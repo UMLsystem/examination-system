@@ -1,7 +1,7 @@
 var models = require('../models');
 var GetScore = require('./get-score');
-var Type = models.type;
-var Question = models.question;
+var Type = models.Types;
+var Question = models.Questions;
 
 function ScoreController() {
 
