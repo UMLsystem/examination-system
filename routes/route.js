@@ -12,6 +12,9 @@ exports.setRoutes = function(app) {
   app.use('/password',require('./routers/password'));
   app.use('/insertMultiple', require('./routers/add-multiple.js'));
   app.use('/insertSingle', require('./routers/add-single.js'));
+  app.use('/addquestion', require('./routers/addQuestion.js'));
+
+
 
 
 
