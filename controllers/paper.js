@@ -8,10 +8,10 @@ var types = [];
 
 function PaperController() {}
 
+getAllTypes();
 
 PaperController.prototype.show = function(req, res) {
   var examId = 1; //var exa_id = req.query.exa_id
-  getAllTypes();
   Paper.findById(examId).then(function(data) {
     return QuestionPaper.getQuestionIds(data);
   }).then(function(data) {
@@ -49,10 +49,11 @@ function getQuestionContents(data) {
 }
 
 function processinData(val, paperContent) {
+  
   types.forEach(function(type) {
-    if (type.typeId === val.typeId) {
+    if (type.id === val.typeId) {
       var key = type.typeName;
-      var result = val.content.split('#');
+      var result = val.question.split('#');
       paperContent[key] = paperContent[key] || [];
       paperContent[key].push({
         content: result[0],

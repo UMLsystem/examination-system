@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
     timestamps: false,
     classMethods: {
       getQuestionIds: function(data) {
-        var paperId = data.dataValues.paperId;
+        var paperId = data.dataValues.id;
         return QuestionPaper.findAll({
           where: {
             paperId: paperId
