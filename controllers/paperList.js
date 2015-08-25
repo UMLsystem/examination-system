@@ -1,6 +1,6 @@
 var models = require('../models');
-var StudentExam = models.studentExam;
-var Exam = models.exam;
+var StudentExam = models.StudentExams;
+var Exam = models.Exams;
 
 
 function PaperListQuery() {

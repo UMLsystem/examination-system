@@ -1,8 +1,8 @@
 var models = require('../models');
-var Paper = models.paper;
-var QuestionPaper = models.questionPaper;
-var Question = models.question;
-var Type = models.type;
+var Paper = models.Papers;
+var QuestionPaper = models.QuestionPapers;
+var Question = models.Questions;
+var Type = models.Types;
 var contents = [];
 var types = [];
 
