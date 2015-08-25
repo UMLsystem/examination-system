@@ -31,8 +31,8 @@ function getAllTypes() {
   return Type.findAll().then(function(data) {
     types = data.map(function(val) {
       return val.dataValues;
-    });
   });
+});
 }
 
 function getPaperId(exa_id, data) {
@@ -90,5 +90,6 @@ function processinData(val, paperContent) {
     }
   });
 }
+
 
 module.exports = PaperController;
