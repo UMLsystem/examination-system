@@ -14,13 +14,13 @@ module.exports = function(sequelize, DataTypes) {
     timestamps: false,
     classMethods: {
       getQuestionContents: function(data) {
-        var questionIds = data.map(function(val) {
-          return val.dataValues.questionId;
+        var ids = data.map(function(val) {
+          return val.dataValues.id;
         });
         return Question.findAll({
           where: {
-            questionId: {
-              $in: questionIds
+            id: {
+              $in: ids
             }
           }
         });
