@@ -1,12 +1,12 @@
 module.exports = function(sequelize, DataTypes) {
-  var Paper = sequelize.define('paper', {
-    id: {
+  var Paper = sequelize.define('Paper', {
+    pap_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
-    teacherId: DataTypes.INTEGER,
-    examId: DataTypes.INTEGER
+    tea_id: DataTypes.INTEGER,
+    exa_id: DataTypes.INTEGER
   }, {
     freezeTableName: true,
     timestamps: false

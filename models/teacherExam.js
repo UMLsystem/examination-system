@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var TeacherExam = sequelize.define('teacherExam', {
+    var TeacherExam = sequelize.define('TeacherExam', {
         id: {
           type: DataTypes.INTEGER,
           primaryKey: true,

@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Type = sequelize.define('type', {
+  var Type = sequelize.define('Type', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
