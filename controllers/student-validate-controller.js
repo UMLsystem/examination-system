@@ -12,10 +12,10 @@ StudentValidateController.prototype.onValidate = function(req, res) {
       stu_num: student.username
     }
   }).then(function(data) {
-    if (data.length > 0 && data.stu_pwd === student.password) {
-      obj={status:200,message:'success',data:data};
+    if (data.length > 0 && data[0].dataValues.stu_pwd === student.password) {
+      obj={status:200,message:'success',data:data[0].dataValues};
     } else {
-      obj={status:404,message:'fail',data:data};
+      obj={status:404,message:'fail'};
     }
   }).done(function() {
     res.send({
