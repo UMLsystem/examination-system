@@ -25,10 +25,7 @@ PaperController.prototype.show = function(req, res) {
         }
       }]
     }).then(function(data) {
-      var questions = data.map(function(val) {
-        return val.dataValues.Questions[0].dataValues;
-      })
-      var paperContent = getQuestionContents(questions);
+      var paperContent = getQuestionContents(data);
       res.render('paper', {
         blank: paperContent.blank,
         single: paperContent.single,
@@ -48,17 +45,11 @@ function getAllTypes() {
 
 function getQuestionContents(data) {
   var paperContent = {};
-
-  data.map(function(val) {
-    return {
-      questionId: val.questionId,
-      question: val.question,
-      typeId: val.typeId
-    };
+  var questions = data.map(function(val) {
+    return val.dataValues.Questions[0].dataValues;
   }).forEach(function(val) {
     processData(val, paperContent);
-  });
-
+  })
   return paperContent;
 }
 
