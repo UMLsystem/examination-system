@@ -17,12 +17,20 @@ ScoreController.prototype.markExam = function(req, res, next) {
 
 function getTrueAnser(answerInfo) {
 
-  // var questionIds = answerInfo.map(function(val){
-  //   return val.questionId;
-  // });
-  // Question.findAll({
-  //   where:{};
-  // });
+//   var questionIds = answerInfo.map(function(val){
+//     return val.questionId;
+//   });
+//   Question.findAll({
+//     where:{que_id:{
+//       $in:questionIds
+//     }
+//   }
+// }).then(functino(data){
+//   var typeItds = data.map(function(val){
+//     return val.typeId;
+//   });
+//   // var questionVaule
+// });
 
   var names = answerInfo.map(function(val) {
     return val.name;

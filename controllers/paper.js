@@ -15,7 +15,7 @@ PaperController.prototype.show = function(req, res) {
   Paper.findById(exa_id).then(function(data) {
     return QuestionPaper.getQuestionIds(exa_id, data);
   }).then(function(data) {
-    return Question.getQuestionContents(data)
+    return Question.getQuestionContents(data);
   }).then(function(data) {
     var paperContent = getQuestionContents(data);
     res.render('paper', {

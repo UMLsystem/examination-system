@@ -12,25 +12,25 @@ $(function() {
     }, function(resp) {
     });
   });
-  //
-  // $('#submit').click(function(){
-  //   $("#message").html("");
-  // });
-  // if(!hasValue) {
-  //   $('#message').append('you should fill all filed').css('color','red');
-  //   return false;
-  // }
-  // var matchPassword = false;
-  // if(newPassword === validatePassword) {
-  //   matchPassword = true;
-  // }
-  // if(matchPassword === true){
-  //   $('#message').append('password are not same').css('color','red');
-  //   return false;
-  // }
-  // $.get('/password', {
-  //   studendId : studendId,
-  //   oldPassword : oldPassword,
-  // })
+
+  $('#submit').click(function(){
+    $("#message").html("");
+  });
+  if(!hasValue) {
+    $('#message').append('you should fill all filed').css('color','red');
+    return false;
+  }
+  var matchPassword = false;
+  if(newPassword === validatePassword) {
+    matchPassword = true;
+  }
+  if(matchPassword === false){
+    $('#message').append('password are not same').css('color','red');
+    return false;
+  }
+  $.get('/password', {
+    studendId : studendId,
+    oldPassword : oldPassword,
+  });
 
 });
