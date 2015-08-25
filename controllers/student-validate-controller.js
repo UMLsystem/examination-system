@@ -8,8 +8,8 @@ StudentValidateController.prototype.onValidate = function(req, res) {
   var obj;
   Student.findAll({
     where: {
-      stu_num: student.username,
-      stu_pwd: student.password
+      studentNumber: student.studentNumber,
+      studentPassword: student.studentPassword
     }
   }).then(function(data) {
     if (data.length > 0) {

@@ -4,14 +4,10 @@ var Exam = models.exam;
 
 
 function PaperListQuery() {
-  var exams = {
-    examed: [],
-    toexam: []
-  };
+
 }
 
 PaperListQuery.prototype.getExamedList = function(req, res, next) {
-  var exams = [];
   var examList = {};
   StudentExam.findAll({
     where : {

@@ -7,7 +7,7 @@ Multiple.prototype.mark = function(trueAnswer) {
   var that = this;
   var finalScore;
   var keyItem = trueAnswer.filter(function(val) {
-    return (that.name === val.ques_id);
+    return (that.name === val.questionId);
   });
   var standardAnswer = keyItem[0].value;
   for (var i = 0; i < that.value.length; i++) {
@@ -20,7 +20,7 @@ Multiple.prototype.mark = function(trueAnswer) {
   if (that.value.length === keyItem[0].value.length) {
     finalScore = keyItem[0].score;
   } else {
-    finalScore = parseInt(keyItem[0].score/2);
+    finalScore = parseInt(keyItem[0].score / 2);
   }
   return finalScore;
 };

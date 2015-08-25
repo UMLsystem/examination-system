@@ -8,8 +8,8 @@ TeacherValidateController.prototype.onValidate = function(req, res) {
   var obj;
   Teacher.findAll({
     where: {
-      tea_num: teacher.username,
-      tea_pwd: teacher.password
+      teacherNumber: teacher.teacherNumber,
+      teacherPassword: teacher.teacherPassword
     }
   }).then(function(data) {
     if (data.length > 0) {
