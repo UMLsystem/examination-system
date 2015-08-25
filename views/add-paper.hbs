@@ -1,0 +1,34 @@
+{{!< teacher-layout}}
+
+{{#contentFor "teacherFile"}}
+    <link rel="stylesheet" href="./stylesheets/teacher.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+{{/contentFor}}
+
+<div class="table">
+    <table id="table" class="table table-hover table-bordered" cellpadding="0" align="center">
+        <thead>
+            <tr class="active">
+                <td>
+                    <h4>编号</h4>
+                </td>
+                <td>
+                    <h4>课程</h4>
+                </td>
+                <td>
+                    <h4>状态</h4>
+                </td>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            {{#each array}}
+            <tr>
+                <td data-id="id">{{exa_id}}</td>
+                <td data-id="name">{{exa_name}}</td>
+                <td data-id="status">{{status}}<input type="button" class="check" value="查看" data-status="{{status}}"></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+<script src="./javascripts/teacher.js"></script>
