@@ -1,14 +1,14 @@
 module.exports = function(sequelize, DataTypes) {
   var Question = sequelize.define('Question', {
-    que_id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true
-    },
-    typ_id: DataTypes.INTEGER,
-    tea_id: DataTypes.INTEGER,
-    que_content: DataTypes.STRING,
-    que_answer: DataTypes.STRING
+      id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+      },
+      typeId: DataTypes.INTEGER,
+      teacherId: DataTypes.INTEGER,
+      question: DataTypes.STRING,
+      answer: DataTypes.STRING
   }, {
     freezeTableName: true,
     timestamps: false,
