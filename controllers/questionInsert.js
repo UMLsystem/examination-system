@@ -37,4 +37,4 @@ var tea_id = $.cookie('tea_id');
    var que = Question.create({typ_id: 3,tea_id:tea_id,que_content:form.question+'#'+form.option0+'#'+form.option1+'#'+form.option2+'#'+form.option3,que_answer:form.multipleChoice1[0]+form.multipleChoice1[1]+form.multipleChoice1[2]});
     res.render('add-success');
 };
-module.exports = Question;
+module.exports = QuestionInsert;
