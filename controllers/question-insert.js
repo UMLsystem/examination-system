@@ -2,7 +2,6 @@ var models = require('../models');
 var Question = models.Questions;
 var Type = models.Types;
 
-
 function QuestionInsert(){
 
 }
