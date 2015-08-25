@@ -1,6 +1,6 @@
 var models = require('../models');
 var Paper = models.paper;
-var QuestionPaper = models.question_paper;
+var QuestionPaper = models.questionPaper;
 var Question = models.question;
 var Type = models.type;
 var contents = [];
@@ -12,8 +12,8 @@ function PaperController() {}
 PaperController.prototype.show = function(req, res) {
   var examId = 1; //var exa_id = req.query.exa_id
   getAllTypes();
-  Paper.findById(exa_id).then(function(data) {
-    return QuestionPaper.getQuestionIds(exa_id, data);
+  Paper.findById(examId).then(function(data) {
+    return QuestionPaper.getQuestionIds(examId, data);
   }).then(function(data) {
     return Question.getQuestionContents(data);
   }).then(function(data) {
@@ -38,9 +38,9 @@ function getQuestionContents(data) {
   var paperContent = {};
   data.map(function(val) {
     return {
-      questionId: val.dataValues.que_id,
-      content: val.dataValues.que_content,
-      type_id: val.dataValues.typ_id
+      questionId: val.dataValues.questionId,
+      question: val.dataValues.question,
+      typeId: val.dataValues.typeId
     };
   }).forEach(function(val) {
     processinData(val, paperContent);
@@ -50,9 +50,9 @@ function getQuestionContents(data) {
 
 function processinData(val, paperContent) {
   types.forEach(function(type) {
-    if (type.typ_id === val.type_id) {
-      var key = type.typ_name;
-      var result = val.content.split('?');
+    if (type.typeId === val.typeId) {
+      var key = type.typeName;
+      var result = val.content.split('#');
       paperContent[key] = paperContent[key] || [];
       paperContent[key].push({
         content: result[0],
