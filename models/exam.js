@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var Exam = sequelize.define('exam', {
+    var Exam = sequelize.define('Exam', {
         id: {
           type: DataTypes.INTEGER,
           primaryKey: true,
@@ -8,7 +8,6 @@ module.exports = function(sequelize, DataTypes) {
         examName: DataTypes.STRING,
         status: DataTypes.BOOLEAN
     }, {
-        freezeTableName: true,
         timestamps: false
     });
     return Exam;
