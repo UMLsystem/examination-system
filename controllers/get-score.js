@@ -1,6 +1,7 @@
 var Blank = require('./blank');
 var Multiple = require('./multiple');
 var SingleChoice = require('./single-choice');
+
 function GetScore() {
 
 }
@@ -20,7 +21,6 @@ GetScore.prototype.getResult = function(answer, trueAnswer) {
     var exerciesSingle = new SingleChoice(answer[i].name, answer[i].value);
     result += exerciesSingle.mark(trueAnswer);
   }
-};
 return result;
 };
 
