@@ -1,12 +1,15 @@
 function usernameValidate() {
   var username = $('#inputUsername').val();
   var arr = username.split('');
-  var flag = true;
+  var flag = false;
+  console.log(arr);
   arr.forEach(function(val) {
-    if (!((val.charCodeAt() >= 48 && val.charCodeAt() <= 57) || (val.charCodeAt() >= 96 && val.charCodeAt() <= 105))) {
-      flag = false;
+    if (!((val.charCodeAt() >= 48 && val.charCodeAt() <= 57))) {
+      flag = true;
+      console.log(val.charCodeAt());
     }
   });
+  console.log(flag);
   return flag;
 }
 

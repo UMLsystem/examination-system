@@ -1,14 +1,12 @@
 function usernameValidate() {
   var username = $('#inputUsername').val();
   var arr = username.split('');
-  var flag = true;
-  console.log(arr[0].charCodeAt());
+  var flag = false;
   arr.forEach(function(val) {
-    if (!((val.charCodeAt() >= 48 && val.charCodeAt() <= 57) || (val.charCodeAt() >= 96 && val.charCodeAt() <= 105))) {
-      flag = false;
+    if (!((val.charCodeAt() >= 48 && val.charCodeAt() <= 57))) {
+      flag = true;
     }
   });
-  console.log(flag);
   return flag;
 }
 
@@ -22,11 +20,6 @@ $(function() {
       $('.label-username').html('用户名不能为空!');
       $('#inputPassword').val('');
       $('.label-username').focus();
-    } else if (usernameValidate()) {
-      $('.label-username').html('用户名不合法!请重新输入...');
-      $('#inputPassword').val('');
-      $('#inputUsername').val('');
-      $('.label-username').focus();
     } else if (password === '') {
       $('.label-username').html('密码不能为空!');
       $('#inputUsername').val('');
@@ -36,7 +29,12 @@ $(function() {
       $('#inputPassword').val('');
       $('#inputUsername').val('');
       $('.label-username').focus();
-    } else {
+    }  if (usernameValidate()) {
+      $('.label-username').html('用户名不合法!请重新输入...');
+      $('#inputPassword').val('');
+      $('#inputUsername').val('');
+      $('.label-username').focus();
+    }else{
       $.post('/student-validate', {
         username: username,
         password: password
