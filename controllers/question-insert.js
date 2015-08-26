@@ -8,7 +8,7 @@ function QuestionInsert(){
 }
 
 QuestionInsertion.prototype.insertFill = function(req, res) {
-  res.cookie('tecaherId',8);
+  res.cookie('tecaherId', 8);
   var teacherId = req.cookies.teacherId;
   var form = req.body;
   var FILL_ID = 1;
@@ -28,7 +28,7 @@ QuestionInsertion.prototype.insertFill = function(req, res) {
 };
 
 QuestionInsertion.prototype.insertSingle = function(req, res) {
-    res.cookie('tecaherId',8);
+  res.cookie('tecaherId', 8);
   var teacherId = req.cookies.teacherId;
   var form = req.body;
   var SINGLE_ID = 2;
@@ -40,9 +40,7 @@ QuestionInsertion.prototype.insertSingle = function(req, res) {
     answer: form.singleChoices
   });
   question.save().then(function() {
-    console.log("question="+JSON.stringify(question));
-    console.log("option="+form.optionOne);
-    console.log("questionId="+question.id);
+
     return Option.bulkCreate([{
       option: form.optionOne,
       questionId: question.id
@@ -67,7 +65,7 @@ QuestionInsertion.prototype.insertSingle = function(req, res) {
 };
 
 QuestionInsertion.prototype.insertMultiple = function(req, res) {
-    res.cookie('tecaherId',8);
+  res.cookie('tecaherId', 8);
   var teacherId = req.cookies.teacherId;
   var form = req.body;
   var string = '';
