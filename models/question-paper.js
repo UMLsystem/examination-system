@@ -8,7 +8,6 @@ module.exports = function(sequelize, DataTypes) {
     questionId: DataTypes.INTEGER,
     paperId: DataTypes.INTEGER
   }, {
-    timestamps: false,
     classMethods: {
       associate: function(model) {
         QuestionPaper.hasMany(model.Question, {
