@@ -9,8 +9,6 @@ module.exports = function(sequelize, DataTypes) {
     userName: DataTypes.STRING,
     userPassword: DataTypes.STRING,
     userNumber: DataTypes.INTEGER(12)
-  }, {
-    timestamps: false
   });
   return User;
 };
