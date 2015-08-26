@@ -8,14 +8,12 @@ function TeacherController() {
 }
 
 TeacherController.prototype.getList = function(req, res, next) {
-  //var array = [];
-
   User.findAll({
     include: [{
       model: Exam,
       where: {
         userId: Sequelize.col('User.id')
-      }
+    }
     }]
   }).then(function(data) {
     return data.map(function(val) {
@@ -26,8 +24,6 @@ TeacherController.prototype.getList = function(req, res, next) {
       array: data
     });
   });
-
-
 };
 
 module.exports = TeacherController;
