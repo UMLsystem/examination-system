@@ -5,7 +5,7 @@ exports.setRoutes = function(app) {
   app.use('/paper-list', require('./routers/paper-list'));
   app.use('/paper', require('./routers/paper'));
   app.use('/user-validate', require('./routers/user-validate'));
-  app.use('/insert-fill', require('./routers/add-fillBlank'));
+  app.use('/insert-fill', require('./routers/add-fill-blank'));
   app.use('/password',require('./routers/password'));
   app.use('/insert-multiple', require('./routers/add-multiple'));
   app.use('/insert-single', require('./routers/add-single'));
