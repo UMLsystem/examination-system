@@ -1,14 +1,14 @@
 var models = require('../models');
-var User = models.users;
+var User = models.User;
 
 function UserValidateController() {}
 
 UserValidateController.prototype.onValidate = function(req, res) {
   var user = req.body;
-  var obj;
+  console.log(parseInt(user.userNumber));
   User.findAll({
     where: {
-      userNumber: parseInt(user.userNumber),
+      userNumber:parseInt(user.userNumber),
       userPassword: user.userPassword
     }
   }).then(function(data) {

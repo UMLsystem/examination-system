@@ -6,19 +6,28 @@
   <script src='./javascripts/user-validate.js'></script>
 {{/contentFor}}
 
-  <div class="container">
-    <h2 class="sign-title">在线考试系统</h2>
-    <div class="sign-label">
-      <form class="form-signin">
-        <h2 class="form-signin-heading">Please Sign in</h2>
-        <label for="inputUsername" class="label-username"></label>
-        <input type="text" id="inputUsername" class="form-control" required autofocus>
+<div class="container">
+  <h2 class="sign-title">在线考试系统</h2>
+  <div class="sign-label">
+    <form class="form-signin" id='form-signin'>
+      <h2 class="form-signin-heading">Please Sign in</h2>
+
+      <fieldset>
         <p>
-          <label for="inputPassword" class="label-password"></label>
-          <input type="password" id="inputPassword" class="form-control" required>
-          <br>
+          <label for="inputUsername" class="label-username"></label><br>
+          <input id="inputUsername" name="inputUsername" type="text" class='form-control' autofocus>
+        </p>
+        <p>
+          <label for="inputPassword" class="label-password"></label><br>
+          <input id="inputPassword" name="inputPassword" type="password" class='form-control'>
+        </p>
+        <p>
           <button class="btn btn-lg btn-block" type="button" id='submit'>sign in</button>
-          <br>
-      </form>
-    </div>
+        </p>
+      </fieldset>
+    </form>
   </div>
+
+</div>
+<script src='./javascripts/user-validate.js'></script>
+</body>

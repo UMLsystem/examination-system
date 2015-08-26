@@ -60,6 +60,10 @@ button {
   background-color: #000000;
   color: #ffffff;
 }
-.label-password , .label-username{
-  color: red;
+
+
+
+.form-signin {
+	color: red;
+	font-style: italic
 }
