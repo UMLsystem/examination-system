@@ -23,9 +23,8 @@ PaperListQuery.prototype.getExamedList = function(req, res, next) {
   }).then(function(data) {
     console.log(data.map(function(val) {
       return val.dataValues;
-    });
+    }));
     res.render('paperList',{examList:examList});
-    );
   });
 };
 
