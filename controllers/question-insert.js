@@ -1,9 +1,10 @@
 var models = require('../models');
+var con = require('../config/back-constant.json');
 var Question = models.Question;
 var Type = models.Type;
 var Option = models.Option;
 
-function QuestionInsertion(){
+function QuestionInsertion() {
 
 }
 
@@ -11,8 +12,8 @@ QuestionInsertion.prototype.insertFill = function(req, res) {
   res.cookie('userId', 8);
   var teacherId = req.cookies.userId;
   var form = req.body;
-  var FILL_ID = 1;
-  var TYPE_ID = FILL_ID;
+  // var FILL_ID = 1;
+  var TYPE_ID = con.FILL_ID;
   var question = Question.create({
     typeId: TYPE_ID,
     teacherId: teacherId,
@@ -69,9 +70,9 @@ QuestionInsertion.prototype.insertMultiple = function(req, res) {
   var teacherId = req.cookies.userId;
   var form = req.body;
   var string = '';
-  form.multipleChoices.forEach(function(multiple) {
+  form.multipleChoices.forEach=function(multiple) {
     string += multiple;
-  });
+  };
   var MULTIPLE_ID = 3;
   var TYPE_ID = MULTIPLE_ID;
   var question = Question.build({
@@ -93,13 +94,14 @@ QuestionInsertion.prototype.insertMultiple = function(req, res) {
     }, {
       option: form.optionFour,
       questionId: question.id
-    }]).then(function() {
-      if (question) {
-        res.render('success');
-      } else {
-        res.render('failture');
-      }
-    });
+    }]);
+  }).then(function() {
+    if (question) {
+      res.render('success');
+    } else {
+      res.render('failture');
+    }
+
   });
 };
 module.exports = QuestionInsertion;
