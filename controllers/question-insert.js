@@ -43,7 +43,7 @@ QuestionInsertion.prototype.insertSingle = function(req, res) {
     console.log("question="+JSON.stringify(question));
     console.log("option="+form.optionOne);
     console.log("questionId="+question.id);
-    Option.bulkCreate([{
+    return Option.bulkCreate([{
       option: form.optionOne,
       questionId: question.id
     }, {
