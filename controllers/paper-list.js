@@ -11,20 +11,22 @@ function PaperListQuery() {
 PaperListQuery.prototype.getExamedList = function(req, res, next) {
   var examList = {};
   StudentExam.findAll({
-    where : {
-      studentId : 1
+    where: {
+      studentId: 1
     },
-    include : [
-      {
-        model : Exam,
-        where :{id: Sequelize.col('StudentExam.examId')}
+    include: [{
+      model: Exam,
+      where: {
+        id: Sequelize.col('StudentExam.examId')
       }
-    ]
+    }]
   }).then(function(data) {
-    console.log(data.map(function(val) {
-      return val.dataValues;
-    }));
-    res.render('paperList',{examList:examList});
+    examList = data.map(function(val) {
+      return val.Exam.dataValues;
+    });
+    res.render('paper-list', {
+      examList: examList
+    });
   });
 };
 
