@@ -8,7 +8,6 @@ module.exports = function(sequelize, DataTypes) {
     typeName: DataTypes.STRING,
     score: DataTypes.INTEGER
   }, {
-    freezeTableName: true,
     timestamps: false,
     classMethods: {
       getAllTypes: function() {
