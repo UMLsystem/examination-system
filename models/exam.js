@@ -1,23 +1,27 @@
 module.exports = function(sequelize, DataTypes) {
-    var Exam = sequelize.define('Exam', {
-        id: {
-          type: DataTypes.INTEGER,
-          primaryKey: true,
-          autoIncrement: true
-        },
-        examName: DataTypes.STRING,
-        status: DataTypes.BOOLEAN
-    }, {
-        timestamps: false,
-        classMethods: {
-            associate: function(model) {
-                Exam.hasOne(model.TeacherExam,{
-                    foreignKey:{
-                        name: 'examId'
-                    }
-                });
-            }
-        }
-    });
-    return Exam;
+  var Exam = sequelize.define('Exams', {
+    id: {
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    },
+    userId: DataTypes.INTEGER,
+    examName: DataTypes.STRING,
+    status: {
+      type: Sequelize.BOOLEAN,
+      defaultValue: false,
+      allowNull: false
+    }
+  }, {
+    timestamps: false,
+    classMethods: {
+      associate: function(model) {
+        Exam.hasOne(model.Users, {
+          foreignKey: {
+            name: 'id'
+          }
+        });
+      }
+    }
+  });
+  return Exam;
 };
