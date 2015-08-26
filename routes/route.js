@@ -5,11 +5,11 @@ exports.setRoutes = function(app) {
   app.use('/paper-list', require('./routers/paper-list'));
   app.use('/paper', require('./routers/paper'));
   app.use('/user-validate', require('./routers/user-validate'));
-  app.use('/insertFill', require('./routers/add-fillBlank.js'));
+  app.use('/insert-fill', require('./routers/add-fillBlank'));
   app.use('/password',require('./routers/password'));
-  app.use('/insertMultiple', require('./routers/add-multiple.js'));
-  app.use('/insertSingle', require('./routers/add-single.js'));
+  app.use('/insert-multiple', require('./routers/add-multiple'));
+  app.use('/insert-single', require('./routers/add-single'));
   app.use('/password',require('./routers/password'));
-  app.use('/add-question', require('./routers/add-question.js'));
+  app.use('/add-question', require('./routers/add-question'));
 
 };
