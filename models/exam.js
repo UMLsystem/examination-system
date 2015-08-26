@@ -8,7 +8,16 @@ module.exports = function(sequelize, DataTypes) {
         examName: DataTypes.STRING,
         status: DataTypes.BOOLEAN
     }, {
-        timestamps: false
+        timestamps: false,
+        classMethods: {
+            associate: function(model) {
+                Exam.hasOne(model.TeacherExam,{
+                    foreignKey:{
+                        name: 'examId'
+                    }
+                });
+            }
+        }
     });
     return Exam;
 };

@@ -1,10 +1,8 @@
-{{!< layout}}
-<link rel="stylesheet" href="/stylesheets/paperList.css" media="screen" title="no title" charset="utf-8">
-<script src="./jquery/dist/jquery.js"></script>
-<script src="./javascripts/jquery-cookie.js"></script>
-<script type="text/javascript" src="/javascripts/paperListRes.js">
+{{!< student-layout}}
+{{#contentFor studentFile}}
+<link rel="stylesheet" href="/stylesheets/paperList.css">
+{{/contentFor}}
 
-</script>
    <div class="" align="left">
    <table>
     <thead>
@@ -23,3 +21,4 @@
     </tbody>
    </table>
   </div>
+  <script type="text/javascript" src="/javascripts/paperListRes.js"></script>

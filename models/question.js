@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
-  var Question = sequelize.define('Questions', {
-      id: {
+  var Question = sequelize.define('Question', {
+    id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
@@ -10,22 +10,7 @@ module.exports = function(sequelize, DataTypes) {
     question: DataTypes.STRING,
     answer: DataTypes.STRING
   }, {
-    freezeTableName: true,
     timestamps: false,
-    classMethods: {
-      getQuestionContents: function(data) {
-        var ids = data.map(function(val) {
-          return val.dataValues.questionId;
-        });
-        return Question.findAll({
-          where: {
-            id: {
-              $in: ids
-            }
-          }
-        });
-      }
-    }
   });
   return Question;
 };

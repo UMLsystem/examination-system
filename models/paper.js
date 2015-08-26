@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Paper = sequelize.define('Papers', {
+  var Paper = sequelize.define('Paper', {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -8,7 +8,6 @@ module.exports = function(sequelize, DataTypes) {
       teacherId: DataTypes.INTEGER,
       examId: DataTypes.INTEGER
   }, {
-    freezeTableName: true,
     timestamps: false
   });
   return Paper;
