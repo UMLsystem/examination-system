@@ -19,16 +19,13 @@
       </ul>
     </div>
     <div class="blank">
+
       <p>一 、填空题</p>
-      {{#each blank}}
-        <h4>{{content}}</h4>
-        <input type="text" name= {{questionId}} value=''>
-        </br>
-      {{/each}}
+      {{{blank blanks}}}
     </div>
     <div class="select">
       <p>二 、选择题</p>
-      {{#each single}}
+      {{#each singleChoices}}
         <h4>{{content}}</h4>
         <input type="radio" name="question_{{questionId}}"  value='A'>{{A}}
         <br>
@@ -43,7 +40,7 @@
     </div>
     <div class="mselect">
       <p>三 、多选题</p>
-      {{#each multiple}}
+      {{#each multipleChoices}}
         <h4> {{content}}</h4>
         <br>
         <input type="checkbox" name= {{questionId}} value='A'>{{A}}

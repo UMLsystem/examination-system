@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var route = require('./routes/route');
+var helper = require('./view-helpers/paper-helper');
 var app = express();
 var hbs = require('express-hbs');
 
