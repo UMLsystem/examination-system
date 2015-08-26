@@ -3,6 +3,9 @@
 {{#contentFor "inputFile"}}
 <script src='../pubic/javascripts/make-exam.js'></script>
   <link rel="stylesheet" href="./stylesheets/paper.css">
+  <script type="text/javascript"   src ="../public/javascripts/mark-exam.js">
+
+  </script>
 {{/contentFor}}
 
 <div class='context'>
@@ -27,7 +30,7 @@
       <p>二 、选择题</p>
       {{#each single}}
         <h4>{{content}}</h4>
-        <input type="radio" name= {{questionId}} value='A'>{{A}}
+        <input type="radio" name="question_{{questionId}}"  value='A'>{{A}}
         <br>
         <input type="radio" name= {{questionId}} value='B'>{{B}}
         <br>
