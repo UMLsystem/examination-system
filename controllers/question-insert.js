@@ -1,9 +1,9 @@
 var models = require('../models');
-var Question = models.Questions;
+var Question = models.Question;
 var Type = models.Type;
-var Option = models.Options;
+var Option = models.Option;
 
-function QuestionInsert(){
+function QuestionInsertion(){
 
 }
 
@@ -102,4 +102,4 @@ QuestionInsertion.prototype.insertMultiple = function(req, res) {
     });
   });
 };
-module.exports = QuestionInsert;
+module.exports = QuestionInsertion;
