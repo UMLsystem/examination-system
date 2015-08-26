@@ -15,6 +15,9 @@ module.exports = function(sequelize, DataTypes) {
             name: 'id'
           }
         });
+        QuestionPaper.belongsTo(model.Paper,{
+          foreignKey:'id'
+        });
       }
     }
   });

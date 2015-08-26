@@ -10,10 +10,8 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(model) {
-        Option.hasOne(model.Question, {
-          foreignKey: {
-            name: 'id'
-          }
+        Option.belongsTo(model.Question, {
+          foreignKey: 'id'
         });
       }
     }
