@@ -21,7 +21,6 @@ function studentLoginRequsest(userNumber, userPassword) {
   });
 }
 
-
 $(function() {
   $('#submit').on('click', function() {
     var userNumber = $('#inputUsername').val();
