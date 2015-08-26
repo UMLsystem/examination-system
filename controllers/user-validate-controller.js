@@ -1,4 +1,5 @@
 var models = require('../models');
+var CONSTANT = require('../public/javascripts/all-constant.js');
 var User = models.User;
 
 function UserValidateController() {}
@@ -13,14 +14,15 @@ UserValidateController.prototype.onValidate = function(req, res) {
   }).then(function(data) {
     if (data.length > 0) {
       res.cookie('userId', data[0].dataValues.userId);
+      console.log(CONSTANT);
       res.send({
-        status: 200,
+        status: CONSTANT.OK,
         message: 'success',
         data: data[0].dataValues
       });
     } else {
       res.send({
-        status: 404,
+        status: CONSTANT.NOT_FOUND,
         message: 'fail'
       });
     }

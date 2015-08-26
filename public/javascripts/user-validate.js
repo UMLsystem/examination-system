@@ -3,7 +3,7 @@ function studentLoginRequsest(userNumber, userPassword) {
     userNumber: userNumber,
     userPassword: userPassword
   }, function(resq) {
-    if (resq.status === 200) {
+    if (resq.status === CONSTANT.OK) {
       if (resq.data.userRole === 'teacher') {
         location.href = "teacher";
       } else if (resq.data.userRole === 'student') {
