@@ -16,7 +16,7 @@ module.exports = {
         option: Sequelize.STRING
       });
   },
-
+  
   down: function(queryInterface, Sequelize) {
     queryInterface.dropTable('Options');
   }

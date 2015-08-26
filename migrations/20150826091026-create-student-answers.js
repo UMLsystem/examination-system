@@ -16,7 +16,7 @@ module.exports = {
         questionId: Sequelize.INTEGER,
         paperId: Sequelize.INTEGER,
         answer: Sequelize.STRING
-      });
+      });  
   },
 
   down: function(queryInterface, Sequelize) {

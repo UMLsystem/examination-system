@@ -15,7 +15,7 @@ module.exports = {
         questionId: Sequelize.INTEGER,
         paperId: Sequelize.INTEGER
       });
-  },
+  },  
 
   down: function(queryInterface, Sequelize) {
     queryInterface.dropTable('QuestionPapers');

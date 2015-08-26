@@ -18,7 +18,7 @@ module.exports = {
         question: Sequelize.STRING,
         answer: Sequelize.STRING
       });
-  },
+  },  
 
   down: function(queryInterface, Sequelize) {
     queryInterface.dropTable('Questions');

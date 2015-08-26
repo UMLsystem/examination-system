@@ -16,7 +16,7 @@ module.exports = {
         userName: Sequelize.STRING,
         userPassword: Sequelize.STRING,
         userNumber: Sequelize.INTEGER(12)
-      });
+      });  
   },
 
   down: function(queryInterface, Sequelize) {

@@ -15,7 +15,7 @@ module.exports = {
         typeName: Sequelize.STRING,
         score: Sequelize.INTEGER
       });
-  },
+  },  
 
   down: function(queryInterface, Sequelize) {
     queryInterface.dropTable('Types');

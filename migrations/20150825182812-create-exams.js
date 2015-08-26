@@ -19,7 +19,7 @@ module.exports = {
           defaultValue: false,
           allowNull: false
         }
-      });
+      });  
   },
 
   down: function(queryInterface, Sequelize) {

@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
     userPassword: DataTypes.STRING,
     userNumber: DataTypes.INTEGER(12)
   }, {
-    timestamps: false,
+    timestamps: false,  
   });
 
   return User;

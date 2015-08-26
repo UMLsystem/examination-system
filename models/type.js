@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
       getAllTypes: function() {
         return Type.findAll();
       }
-    }
+    } 
   });
   return Type;
 };

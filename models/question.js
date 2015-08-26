@@ -18,7 +18,7 @@ module.exports = function(sequelize, DataTypes) {
         Question.hasOne(model.Users, {
           foreignKey: {
             name: 'id'
-          }
+          }  
         });
 
         Question.hasOne(model.Types, {

@@ -14,7 +14,7 @@ module.exports = {
         },
         subjectName: Sequelize.STRING
       });
-  },
+  },  
 
   down: function(queryInterface, Sequelize) {
     queryInterface.dropTable('Subjects');

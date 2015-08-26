@@ -15,7 +15,7 @@ module.exports = {
         userId: Sequelize.INTEGER,//出卷人id
         examId: Sequelize.INTEGER
       });
-  },
+  },  
 
   down: function(queryInterface, Sequelize) {
     queryInterface.dropTable('Papers');
