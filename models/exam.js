@@ -12,7 +12,16 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   }, {
-    timestamps: false
+    timestamps: false,
+    classMethods: {
+      associate: function(model) {
+        Exam.hasOne(model.User, {
+          foreignKey: {
+            name: 'id'
+          }
+        });
+      }
+    }
   });
   return Exam;
 };

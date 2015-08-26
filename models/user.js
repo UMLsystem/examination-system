@@ -10,16 +10,7 @@ module.exports = function(sequelize, DataTypes) {
     userPassword: DataTypes.STRING,
     userNumber: DataTypes.INTEGER(12)
   }, {
-    timestamps: false,
-    classMethods: {
-      associate: function(model) {
-        User.hasOne(model.Exam, {
-          foreignKey: {
-            name: 'userId'
-          }
-        });
-      }
-    }
+    timestamps: false
   });
   return User;
 };
