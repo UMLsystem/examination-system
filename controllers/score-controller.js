@@ -10,5 +10,4 @@ ScoreController.prototype.markExam = function(req, res, next) {
 };
 
 
-
 module.exports = ScoreController;
