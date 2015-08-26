@@ -25,34 +25,11 @@
     </div>
     <div class="select">
       <p>二 、选择题</p>
-      {{#each singleChoices}}
-        <h4>{{content}}</h4>
-        <input type="radio" name="{{questionId}}"  value='A'>{{A}}
-        <br>
-        <input type="radio" name= {{questionId}} value='B'>{{B}}
-        <br>
-        <input type="radio" name= {{questionId}} value='C'>{{C}}
-        <br>
-        <input type="radio" name= {{questionId}} value='D'>{{D}}
-        <br>
-        <br>
-      {{/each}}
+      {{{singleChoice singleChoices}}}
     </div>
     <div class="mselect">
       <p>三 、多选题</p>
-      {{#each multipleChoices}}
-        <h4> {{content}}</h4>
-        <br>
-        <input type="checkbox" name= {{questionId}} value='A'>{{A}}
-        <br>
-        <input type="checkbox" name= {{questionId}} value='B'>{{B}}
-        <br>
-        <input type="checkbox" name= {{questionId}} value='C'>{{C}}
-        <br>
-        <input type="checkbox" name= {{questionId}} value='D'>{{D}}
-        <br>
-        <br>
-      {{/each}}
+      {{{multipleChoice multipleChoices}}}
     </div>
     <div class="submit">
 
