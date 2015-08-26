@@ -8,7 +8,7 @@ function TeacherController() {
 }
 
 TeacherController.prototype.getList = function(req, res, next) {
-  var array = [];
+  //var array = [];
 
   User.findAll({
     include: [{
@@ -18,12 +18,12 @@ TeacherController.prototype.getList = function(req, res, next) {
       }
     }]
   }).then(function(data) {
-    array = data.map(function(val) {
+    return data.map(function(val) {
       return val.dataValues;
     });
-  }).done(function() {
+}).done(function(data) {
     res.render('teacher', {
-      array: array
+      array: data
     });
   });
 
