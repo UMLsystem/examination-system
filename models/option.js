@@ -8,7 +8,6 @@ module.exports = function(sequelize, DataTypes) {
     questionId: DataTypes.STRING,
     option: DataTypes.INTEGER
   }, {
-    timestamps: false,
     classMethods: {
       associate: function(model) {
         Option.hasOne(model.Question, {
