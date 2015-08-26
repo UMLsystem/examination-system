@@ -6,7 +6,7 @@ Blank.prototype.mark = function(trueAnswer) {
   var score = 0;
   var that = this;
   var keyItem = trueAnswer.filter(function(val) {
-    return (that.name === val.ques_id);
+    return (that.name === val.questionId);
   });
      if(this.value === keyItem.value){
        score = keyItem.score;

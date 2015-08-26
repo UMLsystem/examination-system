@@ -1,17 +1,13 @@
 var models = require('../models');
-var StudentExam = models.studentExam;
-var Exam = models.exam;
+var StudentExam = models.StudentExams;
+var Exam = models.Exams;
 
 
 function PaperListQuery() {
-  var exams = {
-    examed: [],
-    toexam: []
-  };
+
 }
 
 PaperListQuery.prototype.getExamedList = function(req, res, next) {
-  var exams = [];
   var examList = {};
   StudentExam.findAll({
     where : {
@@ -33,10 +29,10 @@ PaperListQuery.prototype.getExamedList = function(req, res, next) {
       var examList = data.map(function(val) {
         examList.examName = val.examName;
         return examList;
-      })
+      });
       res.render('paperList',{examList:examList});
-    })
+    });
   });
-}
+};
 
 module.exports = PaperListQuery;

@@ -1,8 +1,8 @@
 var models = require('../models');
-var Paper = models.paper;
-var QuestionPaper = models.questionPaper;
-var Question = models.question;
-var Type = models.type;
+var Paper = models.Papers;
+var QuestionPaper = models.QuestionPapers;
+var Question = models.Questions;
+var Type = models.Types;
 var contents = [];
 var types = [];
 
@@ -13,7 +13,7 @@ PaperController.prototype.show = function(req, res) {
   var examId = 1; //var exa_id = req.query.exa_id
   getAllTypes();
   Paper.findById(examId).then(function(data) {
-    return QuestionPaper.getQuestionIds(examId, data);
+    return QuestionPaper.getQuestionIds(data);
   }).then(function(data) {
     return Question.getQuestionContents(data);
   }).then(function(data) {
