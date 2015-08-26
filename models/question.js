@@ -10,8 +10,6 @@ module.exports = function(sequelize, DataTypes) {
     subjectId: DataTypes.INTEGER,
     question: DataTypes.STRING,
     answer: DataTypes.STRING
-  }, {
-    timestamps: false
   });
   return Question;
 };
