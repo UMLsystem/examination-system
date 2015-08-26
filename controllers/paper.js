@@ -30,7 +30,6 @@ function getQuestionContents(data) {
 }
 
 function processData(val, paperContent) {
-  console.log(val);
   types.forEach(function(type) {
     if (type.id === val.typeId) {
       var key = type.typeName;
@@ -48,8 +47,7 @@ function processData(val, paperContent) {
 }
 
 PaperController.prototype.show = function(req, res) {
-  var examId = req.query.examId;
-  var examId = 1;
+  var examId = 1; //var examId = req.query.examId;
   Paper.findById(examId).then(function(data) {
     return QuestionPaper.findAll({
       where: {

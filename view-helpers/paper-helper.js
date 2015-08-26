@@ -11,7 +11,7 @@ hbs.registerHelper('blank', function(options) {
   return new hbs.SafeString(text);
 });
 
-hbs.registerHelper('singleChoices', function(options) {
+hbs.registerHelper('singleChoice', function(options) {
   var text = '';
   for (var i = 0; i < options.length; i++) {
     var questionNo = i + 1;
@@ -24,7 +24,7 @@ hbs.registerHelper('singleChoices', function(options) {
   return new hbs.SafeString(text);
 });
 
-hbs.registerHelper('multipleChoices', function(options) {
+hbs.registerHelper('multipleChoice', function(options) {
   var text = '';
   for (var i = 0; i < options.length; i++) {
     var questionNo = i + 1;

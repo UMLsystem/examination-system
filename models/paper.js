@@ -7,7 +7,6 @@ module.exports = function(sequelize, DataTypes) {
     },
     teacherId: DataTypes.INTEGER,
     examId: DataTypes.INTEGER
-  }, {
   });
   return Paper;
 };
