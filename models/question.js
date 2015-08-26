@@ -7,7 +7,6 @@ module.exports = function(sequelize, DataTypes) {
     },
     userId: DataTypes.INTEGER,
     typeId: DataTypes.INTEGER,
-    examId: DataTypes.INTEGER,
     subjectId: DataTypes.INTEGER,
     question: DataTypes.STRING,
     answer: DataTypes.STRING
@@ -18,7 +17,7 @@ module.exports = function(sequelize, DataTypes) {
         Question.hasOne(model.Users, {
           foreignKey: {
             name: 'id'
-          }  
+          }
         });
 
         Question.hasOne(model.Types, {

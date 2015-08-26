@@ -16,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
           where: {
             paperId: paperId
           }
-        }); 
+        });
       }
     }
   });
