@@ -1,7 +1,7 @@
 var models = require('../models');
 var Sequelize = require('sequelize');
+var User = models.User;
 var Exam = models.Exam;
-var TeacherExam = models.TeacherExam;
 
 function TeacherController() {
 
@@ -10,11 +10,11 @@ function TeacherController() {
 TeacherController.prototype.getList = function(req, res, next) {
   var array = [];
 
-  Exam.findAll({
+  User.findAll({
     include: [{
-      model: TeacherExam,
+      model: Exam,
       where: {
-        examId: Sequelize.col('Exam.id')
+        userId: Sequelize.col('User.id')
       }
     }]
   }).then(function(data) {

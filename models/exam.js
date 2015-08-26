@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Exam = sequelize.define('Exams', {
+  var Exam = sequelize.define('Exam', {
     id: {
       primaryKey: true,
       type: DataTypes.INTEGER
@@ -12,16 +12,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   }, {
-    timestamps: false,
-    classMethods: {
-      associate: function(model) {
-        Exam.hasOne(model.Users, {
-          foreignKey: {
-            name: 'id'
-          }
-        });
-      }
-    }
+    timestamps: false
   });
   return Exam;
 };
