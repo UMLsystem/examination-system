@@ -8,9 +8,6 @@ module.exports = function(sequelize, DataTypes) {
         teacherId: DataTypes.INTEGER,
         examId: DataTypes.INTEGER,
         status: DataTypes.BOOLEAN
-    }, {
-        timestamps: false,
-
     });
     return TeacherExam;
 };
