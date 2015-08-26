@@ -24,14 +24,14 @@ PaperController.prototype.show = function(req, res) {
           id: Sequelize.col('QuestionPaper.questionId')
         }
       }]
-    }).then(function(data) {
-      var paperContent = getQuestionContents(data);
-      res.render('paper', {
-        blank: paperContent.blank,
-        single: paperContent.single,
-        multiple: paperContent.multiple
-      });
     })
+  }).then(function(data) {
+    var paperContent = getQuestionContents(data);
+    res.render('paper', {
+      blank: paperContent.blank,
+      single: paperContent.single,
+      multiple: paperContent.multiple
+    });
   });
 }
 
