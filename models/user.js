@@ -1,16 +1,16 @@
 module.exports = function(sequelize, DataTypes) {
-  var User = sequelize.define('User', {
+  var User = sequelize.define('Users', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
-    userRole:DataTypes.STRING,
+    userRole: DataTypes.STRING,
     userName: DataTypes.STRING,
-    userNumber: DataTypes.INTEGER,
-    userPassword: DataTypes.STRING
+    userPassword: DataTypes.STRING,
+    userNumber: DataTypes.INTEGER(12)
   }, {
-    timestamps: false
+    timestamps: false,
   });
   return User;
 };

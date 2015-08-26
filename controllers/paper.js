@@ -1,5 +1,5 @@
 var models = require('../models');
-var Sequelize = require('sequelize')
+var Sequelize = require('sequelize');
 var Paper = models.Paper;
 var QuestionPaper = models.QuestionPaper;
 var Question = models.Question;
@@ -24,7 +24,7 @@ PaperController.prototype.show = function(req, res) {
           id: Sequelize.col('QuestionPaper.questionId')
         }
       }]
-    })
+    });
   }).then(function(data) {
     var paperContent = getQuestionContents(data);
     res.render('paper', {
@@ -33,7 +33,7 @@ PaperController.prototype.show = function(req, res) {
       multiple: paperContent.multiple
     });
   });
-}
+};
 
 function getAllTypes() {
   Type.getAllTypes().then(function(data) {
