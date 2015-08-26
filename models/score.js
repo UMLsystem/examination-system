@@ -9,22 +9,7 @@ module.exports = function(sequelize, DataTypes) {
     paperId: DataTypes.INTEGER,
     score: DataTypes.INTEGER
   }, {
-    timestamps: false,
-    classMethods:{
-      associate:function(modules) {
-        Question.hasOne(model.Users, {
-          foreignKey: {
-            name: 'id'
-          }  
-        });
-
-        Question.hasOne(model.Papers, {
-          foreignKey: {
-            name: 'id'
-          }
-        });
-      }
-    }
+    timestamps: false
   });
   return Score;
 };

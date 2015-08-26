@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Question = sequelize.define('Questions', {
+  var Question = sequelize.define('Question', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -11,47 +11,7 @@ module.exports = function(sequelize, DataTypes) {
     question: DataTypes.STRING,
     answer: DataTypes.STRING
   }, {
-    timestamps: false,
-    classMethods: {
-      associate: function(model) {
-        Question.hasOne(model.Users, {
-          foreignKey: {
-            name: 'id'
-          }
-        });
-
-        Question.hasOne(model.Types, {
-          foreignKey: {
-            name: 'id'
-          }
-        });
-
-        Question.hasOne(model.Exams, {
-          foreignKey: {
-            name: 'id'
-          }
-        });
-
-        Question.hasOne(model.Subjects, {
-          foreignKey: {
-            name: 'id'
-          }
-        });
-      },
-
-      getQuestionContents: function(data) {
-        var questionIds = data.map(function(val) {
-          return val.dataValues.questionId;
-        });
-        return Question.findAll({
-          where: {
-            questionId: {
-              $in: questionIds
-            }
-          }
-        });
-      }
-    }
+    timestamps: false
   });
   return Question;
 };

@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
         status: DataTypes.BOOLEAN
     }, {
         timestamps: false,
-        
+
     });
     return TeacherExam;
 };
