@@ -1,6 +1,5 @@
 $(function() {
   var cource;
-  var i = 1;
   $('#cource').change(function() {
     cource = $('#cource').val();
     var sections = $("section");

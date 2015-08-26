@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-var QuestionInsert = require('../../controllers/question-insert');
-var questionInsert = new QuestionInsert();
+var QuestionInsertion = require('../../controllers/question-insert');
+var questionInsert = new QuestionInsertion();
 
 
 router.post('/',questionInsert.insertMultiple);

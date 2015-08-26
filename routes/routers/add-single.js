@@ -1,12 +1,8 @@
 var express = require('express');
 var router = express.Router();
+var QuestionInsertion = require('../../controllers/question-insert');
 
-
-var QuestionInsert = require('../../controllers/question-insert');
-
-var questionInsert = new QuestionInsert();
-
-
+var questionInsert = new QuestionInsertion();
 router.post('/',questionInsert.insertSingle);
 
 module.exports = router;
