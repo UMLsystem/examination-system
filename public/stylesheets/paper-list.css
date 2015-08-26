@@ -1,4 +1,8 @@
   table {
     width: 600px;
-    margin: 50px 0 0 300px;
+    margin: 100px 0 0 400px;
+  }
+  thead {
+    font-size: 200%;
+    color: black;
   }
