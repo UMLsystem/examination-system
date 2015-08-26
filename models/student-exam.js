@@ -9,8 +9,6 @@ module.exports = function(sequelize, DataTypes) {
     examId: DataTypes.INTEGER,
     status: DataTypes.BOOLEAN
   }, {
-
-    timestamps: false,
     classMethods: {
       associate: function(models) {
         StudentExam.hasOne(models.Exam, {
