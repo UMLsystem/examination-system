@@ -1,4 +1,4 @@
-var CONSTANT = function(){
+var CONSTANT = {
     "OK":10200,
     "NOT_FOUND":10404,
     "FILL_ID":1,
@@ -10,4 +10,5 @@ var CONSTANT = function(){
     "MIN_LENGTH":6
 }
 var module = {};
+
 module.exports = CONSTANT;
