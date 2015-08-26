@@ -1,7 +1,7 @@
 var stuId = $.cookie('stuId');
 
 $(function() {
-  $.get('/paperList', {
+  $.get('/paper-list', {
     stuId: stuId
   }, function(resp) {
 
