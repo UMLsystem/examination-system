@@ -5,7 +5,6 @@ function UserValidateController() {}
 
 UserValidateController.prototype.onValidate = function(req, res) {
   var user = req.body;
-  console.log(parseInt(user.userNumber));
   User.findAll({
     where: {
       userNumber:parseInt(user.userNumber),
@@ -13,6 +12,7 @@ UserValidateController.prototype.onValidate = function(req, res) {
     }
   }).then(function(data) {
     if (data.length > 0) {
+      res.cookie('userId', data[0].dataValues.userId);
       res.send({
         status: 200,
         message: 'success',
