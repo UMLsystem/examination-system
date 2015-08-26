@@ -8,7 +8,6 @@ module.exports = function(sequelize, DataTypes) {
     teacherId: DataTypes.INTEGER,
     examId: DataTypes.INTEGER
   }, {
-    timestamps: false
   });
   return Paper;
 };
