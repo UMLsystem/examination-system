@@ -1,9 +1,9 @@
 {{!< layout}}
 
-<head>
+{{#contentFor "inputFile"}}
   <link rel="stylesheet" href="./stylesheets/paper.css">
-</head>
-<title>{{title}}</title>
+{{/contentFor}}
+
 <div class='context'>
   <form id='test-container'>
     <div id="title">
@@ -14,26 +14,25 @@
         <input type="text" id="score" />
       </ul>
     </div>
-    <div class="blank" data-id=1>
+    <div class="blank">
       <p>一 、填空题</p>
       {{#each blank}}
-        <br>{{content}}
-        <input type="text" name= {{content}} value=''>
+        <h4>{{content}}</h4>
+        <input type="text" name= {{questionId}} value=''>
         </br>
       {{/each}}
     </div>
     <div class="select">
       <p>二 、选择题</p>
       {{#each single}}
-        <br> {{content}}
+        <h4>{{content}}</h4>
+        <input type="radio" name= {{questionId}} value='A'>{{A}}
         <br>
-        <input type="radio" name= {{content}} value='A'>{{A}}
+        <input type="radio" name= {{questionId}} value='B'>{{B}}
         <br>
-        <input type="radio" name= {{content}} value='B'>{{B}}
+        <input type="radio" name= {{questionId}} value='C'>{{C}}
         <br>
-        <input type="radio" name= {{content}} value='C'>{{C}}
-        <br>
-        <input type="radio" name= {{content}} value='D'>{{D}}
+        <input type="radio" name= {{questionId}} value='D'>{{D}}
         <br>
         <br>
       {{/each}}
@@ -41,15 +40,15 @@
     <div class="mselect">
       <p>三 、多选题</p>
       {{#each multiple}}
-        <br> {{content}}
+        <h4> {{content}}</h4>
         <br>
-        <input type="checkbox" name= {{content}} value='A'>{{A}}
+        <input type="checkbox" name= {{questionId}} value='A'>{{A}}
         <br>
-        <input type="checkbox" name= {{content}} value='B'>{{B}}
+        <input type="checkbox" name= {{questionId}} value='B'>{{B}}
         <br>
-        <input type="checkbox" name= {{content}} value='C'>{{C}}
+        <input type="checkbox" name= {{questionId}} value='C'>{{C}}
         <br>
-        <input type="checkbox" name= {{content}} value='D'>{{D}}
+        <input type="checkbox" name= {{questionId}} value='D'>{{D}}
         <br>
         <br>
       {{/each}}
