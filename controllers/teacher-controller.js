@@ -1,31 +1,31 @@
 var models = require('../models');
 var Sequelize = require('sequelize');
+var User = models.User;
 var Exam = models.Exam;
-var TeacherExam = models.TeacherExam;
 
 function TeacherController() {
 
 }
 
 TeacherController.prototype.getList = function(req, res, next) {
-    var array = [];
+  var array = [];
 
-    Exam.findAll({
-        include: [{
-            model: TeacherExam,
-            where: {
-                examId: Sequelize.col('Exam.id')
-            }
-        }]
-    }).then(function(data) {
-        array = data.map(function(val) {
-            return val.dataValues;
-        });
-    }).done(function() {
-        res.render('teacher', {
-            array: array
-        });
+  User.findAll({
+    include: [{
+      model: Exam,
+      where: {
+        userId: Sequelize.col('User.id')
+      }
+    }]
+  }).then(function(data) {
+    array = data.map(function(val) {
+      return val.dataValues;
     });
+  }).done(function() {
+    res.render('teacher', {
+      array: array
+    });
+  });
 
 
 };

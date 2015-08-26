@@ -11,40 +11,40 @@ function usernameTypeValidate() {
 }
 
 
-function studentLoginRequsest(userNumber,userPassword) {
+function studentLoginRequsest(userNumber, userPassword) {
   $.post('/user-validate', {
     userNumber: userNumber,
     userPassword: userPassword
   }, function(resq) {
     if (resq.obj.status === 200) {
-      // $.cookie('username', resq.obj.data.userNumber, {
-      //   expires: 1,
-      //   path: '/'
-      // });
-      // $.cookie('password', resq.obj.data.userPassword, {
-      //   expires: 1,
-      //   path: '/'
-      // });
-      // $.cookie('userid', resq.obj.data.id, {
-      //   expires: 1,
-      //   path: '/'
-      // });  // $.cookie('username', resq.obj.data.userNumber, {
-      //   expires: 1,
-      //   path: '/'
-      // });
-      // $.cookie('password', resq.obj.data.userPassword, {
-      //   expires: 1,
-      //   path: '/'
-      // });
-      // $.cookie('userid', resq.obj.data.id, {
-      //   expires: 1,
-      //   path: '/'
-      // });
-      if(resq.obj.data.userRole === 'teacher'){
+      $.cookie('username', resq.obj.data.userNumber, {
+        expires: 1,
+        path: '/'
+      });
+      $.cookie('password', resq.obj.data.userPassword, {
+        expires: 1,
+        path: '/'
+      });
+      $.cookie('userid', resq.obj.data.id, {
+        expires: 1,
+        path: '/'
+      });  // $.cookie('username', resq.obj.data.userNumber, {
+        expires: 1,
+        path: '/'
+      });
+      $.cookie('password', resq.obj.data.userPassword, {
+        expires: 1,
+        path: '/'
+      });
+      $.cookie('userid', resq.obj.data.id, {
+        expires: 1,
+        path: '/'
+      });
+      if (resq.obj.data.userRole === 'teacher') {
         location.href = "teacher";
-      }else if(resq.obj.data.userRole === 'student'){
+      } else if (resq.obj.data.userRole === 'student') {
         location.href = "teacher";
-      }else if(resq.obj.data.userRole === 'admin'){
+      } else if (resq.obj.data.userRole === 'admin') {
         location.href = "teacher";
       }
     } else {
@@ -55,8 +55,6 @@ function studentLoginRequsest(userNumber,userPassword) {
     }
   });
 }
-
-var userInfoValidate = {};
 
 
 $(function() {
@@ -82,7 +80,7 @@ $(function() {
       $('#inputUsername').val('');
       $('.label-username').focus();
     } else {
-      studentLoginRequsest(userNumber,userPassword);
+      studentLoginRequsest(userNumber, userPassword);
     }
   });
 });

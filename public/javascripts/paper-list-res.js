@@ -1,20 +1,9 @@
-var stuId = $.cookie('stuId');
+$.cookie('stuId',1);
 
+var stuId = $.cookie('stuId');
 $(function () {
+  console.log(stuId);
   $.get('/paperList', {stuId : stuId}, function (resp) {
 
   });
-
-  $('.check').on('click', function () {
-    var status = $(this).data('status');
-    if(false === status) {
-      var examId = $(this).parent().parent().data('id');
-      $.get('/paper', {examId : examId}, function (resp) {
-
-      });
-    } else {
-      alert('You have attended this exam.');
-    }
-  });
-
 });

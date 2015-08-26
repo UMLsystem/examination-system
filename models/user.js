@@ -5,12 +5,21 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true,
       autoIncrement: true
     },
-    userRole:DataTypes.STRING,
+    userRole: DataTypes.STRING,
     userName: DataTypes.STRING,
-    userNumber: DataTypes.INTEGER,
-    userPassword: DataTypes.STRING
+    userPassword: DataTypes.STRING,
+    userNumber: DataTypes.INTEGER(12)
   }, {
-    timestamps: false
+    timestamps: false,
+    classMethods: {
+      associate: function(model) {
+        User.hasOne(model.Exam, {
+          foreignKey: {
+            name: 'userId'
+          }
+        });
+      }
+    }
   });
   return User;
 };

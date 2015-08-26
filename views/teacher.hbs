@@ -18,6 +18,9 @@
                 <td>
                     <h4>状态</h4>
                 </td>
+                <td>
+                    <h4>操作</h4>
+                </td>
             </tr>
         </thead>
         <tbody id="tbody">
@@ -25,7 +28,10 @@
             <tr>
                 <td>{{id}}</td>
                 <td>{{examName}}</td>
-                <td data-id="status">{{status}}<input type="button" class="check" value="查看" data-status="{{status}}"></td>
+                <td data-id="status">{{status}}</td>
+                <td>
+                    <input type="button" class="check" value="查看" data-status="{{status}}">
+                </td>
             </tr>
             {{/each}}
         </tbody>
