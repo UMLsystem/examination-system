@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
     timestamps: false,
     classMethods: {
       getAllTypes: function() {
-        return Type.findAll()
+        return Type.findAll();
       }
     }
   });

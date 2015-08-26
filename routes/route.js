@@ -9,7 +9,10 @@ exports.setRoutes = function(app) {
   app.use('/teacher-validate', require('./routers/teacher-validate'));
   app.use('/score',require('./routers/mark-exam'));
   app.use('/insertFill', require('./routers/add-fillBlank.js'));
-  app.use('/insertMultiple', require('./routers/add-single.js'));
-  app.use('/insertSingle', require('./routers/add-multiple.js'));
+  app.use('/password',require('./routers/password'));
+  app.use('/insertMultiple', require('./routers/add-multiple.js'));
+  app.use('/insertSingle', require('./routers/add-single.js'));
+
+
+
 };
- 

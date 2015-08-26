@@ -1,5 +1,7 @@
 var models = require('../models');
+var Sequelize = require('sequelize');
 var Exam = models.exam;
+var TeacherExam = models.teacherExam;
 
 function TeacherController() {
 
@@ -16,6 +18,8 @@ TeacherController.prototype.getList = function(req, res, next) {
             array: array
         });
     });
+
+
 };
 
 module.exports = TeacherController;

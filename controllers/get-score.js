@@ -1,22 +1,30 @@
-var Blank = require('./blank.js');
-var Multiple = require('./multiple.js');
-var SingleChoice = require('./single-choice.js');
+var Blank = require('./blank');
+var Multiple = require('./multiple');
+var SingleChoice = require('./single-choice');
+
 function GetScore() {
 
 }
-GetScore.prototype.getResult = function(answer,trueAnswer) {
+
+
+
+
+
+
+// 化简；
+GetScore.prototype.getResult = function(answer, trueAnswer) {
   var result = 0;
   for (var i = 0; i < answer.length; i++) {
     if (answer[i].type === "text") {
-      var exerciesText = new Blank(answer[i].name,answer[i].value);
-      result += exerciesText.mark(trueAnswer);
-    }
+      var exerciesBlank = new Blank(answer[i].name, answer[i].value);
+      result += exerciesBlank.mark(trueAnswer);
+    } //改名字！！！！！
     if (answer[i].type === "checkbox") {
-      var exerciesMultiple = new Multiple(answer[i].name,answer[i].value);
+      var exerciesMultiple = new Multiple(answer[i].name, answer[i].value);
       result += exerciesMultiple.mark(trueAnswer);
     }
     if (answer[i].type === "radio") {
-      var exerciesSingle = new SingleChoice(answer[i].name,answer[i].value);
+      var exerciesSingle = new SingleChoice(answer[i].name, answer[i].value);
       result += exerciesSingle.mark(trueAnswer);
     }
   }

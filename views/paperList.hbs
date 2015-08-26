@@ -1,38 +1,43 @@
 {{!< layout}}
-<style media="screen">
-  table {
-    width: 600px;
-    margin: 100px 0 0 300px;
-  }
-</style>
-  <div class="" align="left">
-    <table class="toexam">
-      <thead align="left">
-        <th><font size=5>未考科目</font></th>
-      </thead>
-      <tbody>
-        <tr>
-          <td>test</td>
-          <td>
-            <button type="button" name="button" class="startExam">开始考试</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <table class="examed">
-      <thead align="left">
-        <th><font size=5>已考科目</font></th>
-      </thead>
-      <tbody>
-        <tr>
-          <td>test</td>
-          <td>
-            <button type="button" name="button">查看成绩</button>
-          </td>
-          <td>
-            <button type="button" name="button">查看试卷</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<link rel="stylesheet" href="/stylesheets/paperList.css" media="screen" title="no title" charset="utf-8">
+<script src="./jquery/dist/jquery.js"></script>
+<script src="./javascripts/jquery-cookie.js"></script>
+<script type="text/javascript" src="/javascripts/paperListRes.js">
+
+</script>
+   <div class="" align="left">
+   <table>
+    <table>
+       <thead align="left">
+         <th><font size=5>已考科目</font></th>
+       </thead>
+       <tbody>
+        {{#each exams.examed}}
+        <tr data-id={{exa_id}}>
+          <td>{{exa_name}}</td>
+           <td>
+             <button type="button" name="button" class="startExam">开始考试</button>
+           </td>
+         </tr>
+        {{/each}}
+       </tbody>
+     </table>
+    <table>
+    <table>
+       <thead align="left">
+         <th><font size=5>未考科目</font></th>
+       </thead>
+       <tbody>
+        {{#each exams.toexam}}
+        <tr data-id={{exa_id}}>
+          <td>{{exa_name}}</td>
+           <td>
+             <button type="button" name="button">查看成绩</button>
+           </td>
+             <button type="button" name="button">查看试卷</button>
+           </td>
+         </tr>
+        {{/each}}
+       </tbody>
+     </table>
+   </div>
