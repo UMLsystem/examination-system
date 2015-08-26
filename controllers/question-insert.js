@@ -20,7 +20,7 @@ QuestionInsertion.prototype.insertFill = function(req, res) {
     answer: form.answer
   }).then(function() {
     if (question) {
-      res.render('add-success');
+      res.render('success');
     } else {
       res.render('failture');
     }
@@ -56,7 +56,7 @@ QuestionInsertion.prototype.insertSingle = function(req, res) {
     }]);
   }).then(function() {
     if (question) {
-      res.render('add-success');
+      res.render('success');
     } else {
       res.render('failture');
     }
@@ -74,7 +74,7 @@ QuestionInsertion.prototype.insertMultiple = function(req, res) {
   });
   var MULTIPLE_ID = 3;
   var TYPE_ID = MULTIPLE_ID;
-  var question = Question.create({
+  var question = Question.build({
     typeId: TYPE_ID,
     teacherId: teacherId,
     question: form.question,
@@ -95,7 +95,7 @@ QuestionInsertion.prototype.insertMultiple = function(req, res) {
       questionId: question.id
     }]).then(function() {
       if (question) {
-        res.render('add-success');
+        res.render('success');
       } else {
         res.render('failture');
       }
