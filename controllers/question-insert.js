@@ -8,8 +8,8 @@ function QuestionInsertion(){
 }
 
 QuestionInsertion.prototype.insertFill = function(req, res) {
-  res.cookie('tecaherId', 8);
-  var teacherId = req.cookies.teacherId;
+  res.cookie('userId', 8);
+  var teacherId = req.cookies.userId;
   var form = req.body;
   var FILL_ID = 1;
   var TYPE_ID = FILL_ID;
@@ -28,8 +28,8 @@ QuestionInsertion.prototype.insertFill = function(req, res) {
 };
 
 QuestionInsertion.prototype.insertSingle = function(req, res) {
-  res.cookie('tecaherId', 8);
-  var teacherId = req.cookies.teacherId;
+  res.cookie('userId', 8);
+  var teacherId = req.cookies.userId;
   var form = req.body;
   var SINGLE_ID = 2;
   var TYPE_ID = SINGLE_ID;
@@ -65,8 +65,8 @@ QuestionInsertion.prototype.insertSingle = function(req, res) {
 };
 
 QuestionInsertion.prototype.insertMultiple = function(req, res) {
-  res.cookie('tecaherId', 8);
-  var teacherId = req.cookies.teacherId;
+  res.cookie('userId', 8);
+  var teacherId = req.cookies.userId;
   var form = req.body;
   var string = '';
   form.multipleChoices.forEach(function(multiple) {
