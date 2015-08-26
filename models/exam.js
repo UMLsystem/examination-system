@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
     userId: DataTypes.INTEGER,
     examName: DataTypes.STRING,
     status: {
-      type: Sequelize.BOOLEAN,
+      type: DataTypes.BOOLEAN,
       defaultValue: false,
       allowNull: false
     }
