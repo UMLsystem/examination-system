@@ -1,5 +1,5 @@
 var models = require('../models');
-var Student = models.student;
+var Student = models.Students;
 
 function StudentValidateController() {}
 
@@ -8,7 +8,7 @@ StudentValidateController.prototype.onValidate = function(req, res) {
   var obj;
   Student.findAll({
     where: {
-      studentNumber: student.studentNumber,
+      studentNumber: parseInt(student.studentNumber),
       studentPassword: student.studentPassword
     }
   }).then(function(data) {

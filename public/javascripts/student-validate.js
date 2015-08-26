@@ -42,7 +42,7 @@ function studentLoginRequsest(studentNumber,studentPassword) {
 $(function() {
   $('#submit').on('click', function() {
     var studentNumber = $('#inputUsername').val();
-    // var password = $.md5($('#inputPassword').val());
+    // var studentPassword = $.md5($('#inputPassword').val());
     var studentPassword = $('#inputPassword').val();
     if (studentNumber === '') {
       $('.label-username').html('用户名不能为空!');
