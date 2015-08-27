@@ -5,8 +5,6 @@ var QuestionPaper = models.QuestionPaper;
 var Question = models.Question;
 var Option = models.Option;
 var Type = models.Type;
-var contents = [];
-var questions = [];
 var types = [];
 
 function PaperController() {}
@@ -46,6 +44,7 @@ function processData(val, paperContent) {
 
 PaperController.prototype.show = function(req, res) {
   var examId = req.query.examId;
+
   getQuestions(examId).then(function(data) {
     questions = data.map(function(val) {
       return val.dataValues.Questions[0].dataValues;
@@ -62,7 +61,7 @@ PaperController.prototype.show = function(req, res) {
     var options = data.map(function(val) {
       return val.dataValues;
     });
-    getContent(questions, options);
+    var contents = getContent(questions, options);
     var paperContent = getQuestionContents(contents);
     res.render('paper', {
       blanks: paperContent.blank,
@@ -92,8 +91,8 @@ function getQuestions(examId) {
 
 
 function getContent(questions, options) {
+  var contents = [];
   options.forEach(function(option) {
-
     contents = questions.map(function(question) {
       if (option.questionId === question.id) {
         question['options'] = question['options'] || [];
