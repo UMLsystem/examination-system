@@ -5,9 +5,8 @@ hbs.registerHelper('blank', function(options) {
   for (var i = 0; i < options.length; i++) {
     var questionNo = i + 1;
     text += "<h4>" + questionNo + ' . ' + options[i].content +  "</h4>\n"
-          + "<input type='text' name=" + options[i].questionId + " value=''></br>";
+          + "<input type='text' name=" + options[i].id + " value=''></br>";
   }
-
   return new hbs.SafeString(text);
 });
 
