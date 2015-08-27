@@ -42,6 +42,20 @@ function processData(val, paperContent) {
   });
 }
 
+function getContent(questions, options) {
+  var contents = [];
+  options.forEach(function(option) {
+    contents = questions.map(function(question) {
+      if (option.questionId === question.id) {
+        question['options'] = question['options'] || [];
+        question['options'].push(option.option);
+      }
+      return question;
+    });
+  });
+  return contents;
+}
+
 PaperController.prototype.show = function(req, res) {
   var examId = req.query.examId;
 
@@ -71,17 +85,4 @@ PaperController.prototype.show = function(req, res) {
   });
 }
 
-function getContent(questions, options) {
-  var contents = [];
-  options.forEach(function(option) {
-    contents = questions.map(function(question) {
-      if (option.questionId === question.id) {
-        question['options'] = question['options'] || [];
-        question['options'].push(option.option);
-      }
-      return question;
-    });
-  });
-  return contents;
-}
 module.exports = PaperController;
