@@ -13,11 +13,11 @@
     </thead>
     <tbody id="tbody">
       {{#each examList}}
-        <tr data-id= {{id}}>
+        <tr data-id= {{id}} data-status={{status}}>
           <td>{{id}}</td>
           <td>{{examName}}</td>
-          <td data-id="status">{{status}}</td>
-          <td><input type="button" class="check" value={{status}} data-status="{{status}}"></td>
+          <td class="examStatus"></td>
+          <td><input type="button" class="check" value=“查看试卷”></td>
         </tr>
       {{/each}}
     </tbody>
