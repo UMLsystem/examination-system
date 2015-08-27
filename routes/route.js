@@ -12,6 +12,5 @@ exports.setRoutes = function(app) {
   app.use('/password',require('./routers/password'));
   app.use('/add-question', require('./routers/add-question'));
   app.use('/score', require('./routers/mark-exam'));
-  app.use('/paper-check', require('./routers/paper-check'));
 
 };
