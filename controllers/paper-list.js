@@ -1,5 +1,4 @@
 var models = require('../models');
-// var StudentExam = models.StudentExam;
 var User = models.User;
 var Exam = models.Exam;
 var Sequelize = require('sequelize');
@@ -11,22 +10,16 @@ function PaperListQuery() {
 
 PaperListQuery.prototype.getExamedList = function(req, res, next) {
   var examList = {};
-  User.findAll({
+  Exam.findAll({
     where : {
-      id : 1
-    },
-    include : [
-      {
-        model : Exam,
-        where :{userId: Sequelize.col('User.id')}
-      }
-    ]
+      userId : 1
+    }
   }).then(function(data) {
     examList = data.map(function(val) {
-      return val.dataValues.Exam.dataValues;
+      return val.dataValues;
     });
-    res.render('paper-list',{examList:examList});
-  });
+    res.render('paper-list', {examList:examList});
+  })
 };
 
 module.exports = PaperListQuery;
