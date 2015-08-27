@@ -6,19 +6,24 @@ $(function() {
   }, function(resp) {
 
   });
+  var examId = $('tbody tr').data('id');
+  var examStatus = $('tbody tr').data('examStatus');
 
-  $('.check').on('click', function() {
-    var status = $(this).data('status');
-    if (false === status) {
-      var examId = $(this).parent().parent().data('id');
-      $.get('/paper', {
-        examId: examId
-      }, function(resp) {
+  if(examStatus === true) {
+    $('.examStatus').text('已考');
+    $('.check').val('查看试卷');
+    $('.check').on('click', function () {
+      $.get('/paperCheck', {examId:examId}, function (resp) {
 
       });
-    } else {
-      alert('You have attended this exam.');
-    }
-  });
+    });
+  } else {
+    $('.examStatus').text('未考');
+    $('.check').val('开始考试');
+    $('.check').on('click', function () {
+      $.get('/paper', {examId:examId}, function (resp) {
 
+      });
+    });
+  }
 });
