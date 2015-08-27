@@ -45,7 +45,7 @@ function processData(val, paperContent) {
 PaperController.prototype.show = function(req, res) {
   var examId = req.query.examId;
 
-  getQuestions(examId).then(function(data) {
+  QuestionPaper.getQuestions(examId, Paper, Question).then(function(data) {
     questions = data.map(function(val) {
       return val.dataValues.Questions[0].dataValues;
     });
@@ -70,25 +70,6 @@ PaperController.prototype.show = function(req, res) {
     });
   });
 }
-
-function getQuestions(examId) {
-  return QuestionPaper.findAll({
-    include: [{
-      model: Paper,
-      where: {
-        examId: examId,
-        id: Sequelize.col('QuestionPaper.paperId')
-      }
-    }],
-    include: [{
-      model: Question,
-      where: {
-        id: Sequelize.col('QuestionPaper.questionId')
-      }
-    }]
-  })
-}
-
 
 function getContent(questions, options) {
   var contents = [];
