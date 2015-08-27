@@ -1,6 +1,0 @@
-var FONT_CONSTANT = {
-    NUMBER_START: 48,
-    NUMBER_END: 57,
-    MAX_LENGTH: 12,
-    MIN_LENGTH: 6
-};
