@@ -1,7 +1,7 @@
 module.exports = {
   up: function(queryInterface, Sequelize) {
     return queryInterface.addColumn(
-      'Eaxms',
+      'Exams',
       'subjectId', {
         type: Sequelize.INTEGER,
         allowNull: false
@@ -10,6 +10,6 @@ module.exports = {
   },
 
   down: function(queryInterface, Sequelize) {
-    return queryInterface.removeColumn('Eaxms', 'subjectId');
+    return queryInterface.removeColumn('Exams', 'subjectId');
   }
 };
