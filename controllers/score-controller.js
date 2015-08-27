@@ -48,9 +48,14 @@ function completeAnswer(answer) {
     }]
   }).then(function(data) {
     //  console.log(data);
-    console.log(data.map(function(val) {
-      return val.dataValues;
-    }));
+    var texts = [];
+    tests = data.map(function(val) {
+      var text = {};
+      text['trueValue'] = val.dataValues.answer;
+      text['score'] = val.dataValues.Type.dataValues.score;
+      return text;
+    });
+    console.log(tests);
   });
 
 }
