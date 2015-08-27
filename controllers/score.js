@@ -3,27 +3,26 @@ var MultipleChoice = require('./multiple-choice');
 var SingleChoice = require('./single-choice');
 
 var answerTypeBuilder = {
-  text: function(name, value) {
-    return new BlankQuestion(name, value);
+  text: function(type,questionId, value, trueValue, score) {
+    return new BlankQuestion(type, questionId, value, trueValue, score);
   },
-  checkbox: function(name, value) {
-    return new MultipleChoice(name, value);
+  checkbox: function(type, questionId, value, trueValue, score) {
+    return new MultipleChoice(type, questionId, value, trueValue, score);
   },
-  radio: function(name, value) {
-    return new SingleChoice(name, value);
+  radio: function(type, questionId, value, trueValue, score) {
+    return new SingleChoice(type, questionId, value, trueValue, score);
   }
 };
 
-function Score() {
+function Score() {}
 
-}
-Score.prototype.getScore = function(answers, trueAnswers) {
+Score.prototype.getScore = function(answers) {
   var result = 0;
   for (var i = 0; i < answers.length; i++) {
-    var exercise = answerTypeBuilder[answers[i].type](answers[i].name, answers[i].value);
+    var exercise = answerTypeBuilder[answers[i].type](answers[i].questionId, answers[i].value, answers[i].trueValue, answers[i].score);
     result += exercise.mark(trueAnswer);
   }
   return result;
 };
 
-module.exports = score;
+module.exports = Score;
