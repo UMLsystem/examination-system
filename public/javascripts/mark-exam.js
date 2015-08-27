@@ -1,15 +1,13 @@
-$(function(){
-  $('#submit').on("click",function( ) {
-    var answer = getStudentAnswer();
-    $.get('/score',{
-      answer:answer,
-    },function(result) {
-    $('#score').html(result);
+$(function() {
+  $('#submit').on("click", function() {
+    var answer = $('form').serialize();
+    $.ajax({
+      url: '/score',
+      data: answer,
+      type: 'POST',
+      success: function(result) {
+        $('#score').html(result);
+      }
     });
   });
 });
-
-function getStudentAnswer() {
-  var str = $('form').serialize();
-  return str;
-}

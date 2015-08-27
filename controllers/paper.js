@@ -83,6 +83,6 @@ PaperController.prototype.show = function(req, res) {
       multipleChoices: paperContent.multipleChoice
     });
   });
-}
+};
 
 module.exports = PaperController;
