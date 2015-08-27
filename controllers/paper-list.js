@@ -11,14 +11,16 @@ function PaperListQuery() {
 PaperListQuery.prototype.getExamedList = function(req, res, next) {
   var examList = {};
   Exam.findAll({
-    where : {
-      userId : 1
+    where: {
+      userId: 1
     }
   }).then(function(data) {
     examList = data.map(function(val) {
       return val.dataValues;
     });
-    res.render('paper-list', {examList:examList});
+    res.render('paper-list', {
+      examList: examList
+    });
   })
 };
 
