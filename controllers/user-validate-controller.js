@@ -6,19 +6,19 @@ function UserValidateController() {}
 
 UserValidateController.prototype.onValidate = function(req, res) {
   var user = req.body;
-  User.findAll({
+  User.findOne({
     where: {
       userNumber: user.userNumber,
       userPassword: user.userPassword
     }
   }).then(function(data) {
-    if (data.length > 0) {
-      res.cookie('userId', data[0].dataValues.userId);
-      res.cookie('userName', data[0].dataValues.userName);
+    if (data !== null) {
+      res.cookie('userId', data.dataValues.userId);
+      res.cookie('userName', data.dataValues.userName);
       res.send({
         status: CONSTANT.OK,
         message: 'success',
-        data: data[0].dataValues
+        data: data.dataValues
       });
     } else {
       res.send({
