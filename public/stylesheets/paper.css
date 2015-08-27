@@ -54,7 +54,7 @@ p {
   text-indent: 25px;
   background-color: #BFEFFF;
 }
-.select {
+.singleChoice {
   border-right: 1px solid #BFEFFF;
   border-top: 1px solid #BFEFFF;
   border-left: 1px solid #BFEFFF;
@@ -64,7 +64,7 @@ p {
   height: 500px;
   margin: 30px auto 0 auto;
 }
-.mselect {
+.multipleChoice {
   border-right: 1px solid #BFEFFF;
   border-top: 1px solid #BFEFFF;
   border-left: 1px solid #BFEFFF;
