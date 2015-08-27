@@ -8,7 +8,7 @@ function BlankQuestion(type, questionId, value, trueValue, score) {
 
 BlankQuestion.prototype.mark = function() {
   var score = 0;
-  if (this.value === this.truevalue) {
+  if (this.value === this.trueValue) {
     score = this.score;
   }
   return score;

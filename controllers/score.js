@@ -16,7 +16,7 @@ var answerTypeBuilder = {
 
 function Score() {}
 
-Score.prototype.getScore = function(answers) {
+Score.prototype.getScore = function() {
   var result = 0;
   for (var i = 0; i < answers.length; i++) {
     var exercise = answerTypeBuilder[answers[i].type](answers[i].questionId, answers[i].value, answers[i].trueValue, answers[i].score);
