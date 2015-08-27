@@ -66,11 +66,7 @@ PaperController.prototype.show = function(req, res) {
     var ids = questions.map(function(val) {
       return val.id;
     });
-    return Option.findAll({
-      questionId: {
-        $in: ids
-      }
-    });
+    return Option.getOptions(ids);
   }).then(function(data) {
     var options = data.map(function(val) {
       return val.dataValues;

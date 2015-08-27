@@ -13,6 +13,13 @@ module.exports = function(sequelize, DataTypes) {
         Option.belongsTo(model.Question, {
           foreignKey: 'id'
         });
+      },
+      getOptions: function(ids) {
+        return Option.findAll({
+          questionId: {
+            $in: ids
+          }
+        });
       }
     }
   });
