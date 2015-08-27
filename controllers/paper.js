@@ -46,28 +46,11 @@ function processData(val, paperContent) {
 
 PaperController.prototype.show = function(req, res) {
   var examId = req.query.examId;
-  QuestionPaper.findAll({
-    include: [{
-      model: Paper,
-      where: {
-        examId: examId,
-        id: Sequelize.col('QuestionPaper.paperId')
-      }
-    }],
-    include: [{
-      model: Question,
-      where: {
-        id: Sequelize.col('QuestionPaper.questionId')
-      }
-    }]
-  }).then(function(data) {
-
+  getQuestions(examId).then(function(data) {
     questions = data.map(function(val) {
       return val.dataValues.Questions[0].dataValues;
     });
-    return questions;
-  }).then(function(data) {
-    var ids = data.map(function(val) {
+    var ids = questions.map(function(val) {
       return val.id;
     });
     return Option.findAll({
@@ -88,6 +71,25 @@ PaperController.prototype.show = function(req, res) {
     });
   });
 }
+
+function getQuestions(examId) {
+  return QuestionPaper.findAll({
+    include: [{
+      model: Paper,
+      where: {
+        examId: examId,
+        id: Sequelize.col('QuestionPaper.paperId')
+      }
+    }],
+    include: [{
+      model: Question,
+      where: {
+        id: Sequelize.col('QuestionPaper.questionId')
+      }
+    }]
+  })
+}
+
 
 function getContent(questions, options) {
   options.forEach(function(option) {
