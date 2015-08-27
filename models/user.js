@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
     userRole: DataTypes.STRING,
     userName: DataTypes.STRING,
     userPassword: DataTypes.STRING,
-    userNumber: DataTypes.INTEGER(12)
+    userNumber: DataTypes.STRING
   });
   return User;
 };

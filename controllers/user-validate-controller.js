@@ -8,7 +8,7 @@ UserValidateController.prototype.onValidate = function(req, res) {
   var user = req.body;
   User.findAll({
     where: {
-      userNumber: parseInt(user.userNumber),
+      userNumber: user.userNumber,
       userPassword: user.userPassword
     }
   }).then(function(data) {
