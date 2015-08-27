@@ -1,5 +1,5 @@
 var hbs = require('express-hbs');
-
+var constant = require('../config/back-constant.json');
 hbs.registerHelper('blank', function(options) {
   var text = '';
   for (var i = 0; i < options.length; i++) {
@@ -16,7 +16,7 @@ hbs.registerHelper('singleChoice', function(options) {
     var questionNo = i + 1;
     text += "<h4>" + questionNo + ' . ' + options[i].content +  "</h4>\n";
     for(var j = 0; j < options[i].options;j++){
-      var choiceNumber = String.fromCharCode(65+j);
+      var choiceNumber = String.fromCharCode(constant.A+j);
       text += "<input type='radio' name="+options[i].options[j]+"value="+choiceNumber+">"+choiceNumber+'\n';
     }
   }
@@ -29,7 +29,7 @@ hbs.registerHelper('multipleChoice', function(options) {
     var questionNo = i + 1;
     text += "<h4>" + questionNo + ' . ' + options[i].content +  "</h4>\n";
     for(var j = 0; j < options[i].options;j++){
-      var choiceNumber = String.fromCharCode(65+j);
+      var choiceNumber = String.fromCharCode(constant.A+j);
       text += "<input type='checkbox' name="+options[i].options[j]+"value="+choiceNumber+">"+choiceNumber+'\n';
     }
   }
