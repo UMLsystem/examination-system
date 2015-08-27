@@ -1,9 +1,11 @@
-function studentLoginRequsest(userNumber, userPassword) {
+function userLoginRequsest(userNumber, userPassword) {
   $.post('/user-validate', {
     userNumber: userNumber,
     userPassword: userPassword
   }, function(resq) {
     if (resq.status === CONSTANT.OK) {
+      $.cookie('userNumber', resq.data.userNumber);
+      $.cookie('userName', resq.data.userName);
       if (resq.data.userRole === 'teacher') {
         location.href = "teacher";
       } else if (resq.data.userRole === 'student') {
@@ -24,6 +26,6 @@ $(function() {
   $('#submit').on('click', function() {
     var userNumber = $('#inputUsername').val();
     var userPassword = $('#inputPassword').val();
-    studentLoginRequsest(userNumber, userPassword);
+    userLoginRequsest(userNumber, userPassword);
   });
 });

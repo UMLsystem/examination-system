@@ -8,13 +8,13 @@ UserValidateController.prototype.onValidate = function(req, res) {
   var user = req.body;
   User.findAll({
     where: {
-      userNumber:parseInt(user.userNumber),
+      userNumber: parseInt(user.userNumber),
       userPassword: user.userPassword
     }
   }).then(function(data) {
     if (data.length > 0) {
       res.cookie('userId', data[0].dataValues.userId);
-      console.log(CONSTANT);
+      res.cookie('userName', data[0].dataValues.userName);
       res.send({
         status: CONSTANT.OK,
         message: 'success',
