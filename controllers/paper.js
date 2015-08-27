@@ -65,8 +65,8 @@ PaperController.prototype.show = function(req, res) {
     var paperContent = getQuestionContents(contents);
     res.render('paper', {
       blanks: paperContent.blank,
-      singleChoices: paperContent.singleChoices,
-      multipleChoices: paperContent.multipleChoices
+      singleChoices: paperContent.singleChoice,
+      multipleChoices: paperContent.multipleChoice
     });
   });
 }
