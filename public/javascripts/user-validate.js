@@ -26,7 +26,7 @@ function userLoginRequsest(userNumber, userPassword) {
     userNumber: userNumber,
     userPassword: userPassword
   }, function(resq) {
-    if (resq.status === CONSTANT.OK) {
+    if (resq.status === constant.OK) {
       $.cookie('userNumber', resq.data.userNumber);
       $.cookie('userName', resq.data.userName);
       if (resq.data.userRole === 'teacher') {
