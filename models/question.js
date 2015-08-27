@@ -10,6 +10,16 @@ module.exports = function(sequelize, DataTypes) {
     subjectId: DataTypes.INTEGER,
     question: DataTypes.STRING,
     answer: DataTypes.STRING
+  },{
+    classMethods: {
+      associate: function(model) {
+        Question.belongsTo(model.Type, {
+          foreignKey: {
+            name: 'typeId'
+          }
+        });
+      }
+    }
   });
   return Question;
 };
