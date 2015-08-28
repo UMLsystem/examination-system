@@ -1,19 +1,22 @@
 var models = require('../models');
+var Score = require('./score');
 var Sequelize = require('sequelize');
 var bodyParser = require('body-parser');
 var Type = models.Type;
 var Question = models.Question;
-
+//var answersInfos = [];
 function ScoreController() {}
 
 ScoreController.prototype.markExam = function(req, res, next) {
-  var obj = req.body;
-  var answers = [];
-  answers = formAnswerArray(obj);
-  console.log(answers);
-  var trueAnswers = [];
-  trueAnswers = completeAnswer(answers);
-  res.send(trueAnswers);
+  var answersInfos = [];
+  var answers = formAnswerArray(req.body);
+  completeAnswer(answers,answersInfos).then(function(data){
+   //console.log(data);
+   var score = new Score();
+   var result = score.getScore(data);
+   console.log(result);
+  })
+  res.send(answers);
 };
 
 function formAnswerArray(obj) {
@@ -28,11 +31,11 @@ function formAnswerArray(obj) {
   return answer;
 }
 
-function completeAnswer(answers) {
+function completeAnswer(answers,answersInfos) {
   var questionIds = answers.map(function(val) {
     return val.questionId;
   });
-  Question.findAll({
+return  Question.findAll({
     where: {
       id: {
         $in: questionIds
@@ -52,21 +55,19 @@ function completeAnswer(answers) {
       text.score = val.dataValues.Type.dataValues.score;
       return text;
     });
-    var answerInfo =[];
-    for(var i = 0; i < answers.length; i++){
-      var obj ={};
-       obj.type = answers[i].type;
-       obj.questionId = answers[i].questionId;
-       obj.value = answers[i].value;
-       obj.trueValue = tests[i].trueValue;
-       obj.score = tests[i].score;
-       answerInfo.push(obj);
-     }
-    console.log(tests);
-    console.log(answerInfo);
+    //var answerInfo = [];
+    for (var i = 0; i < answers.length; i++) {
+      var obj = {};
+      obj.type = answers[i].type;
+      obj.questionId = answers[i].questionId;
+      obj.value = answers[i].value;
+      obj.trueValue = tests[i].trueValue;
+      obj.score = tests[i].score;
+      answersInfos.push(obj);
+    }
+    return answersInfos;
   });
-// var answer
-
+  //return answersInfos;
 }
 
 
