@@ -7,7 +7,7 @@ var answerTypeBuilder = {
     return new BlankQuestion(value, trueValue, score);
   },
   checkbox: function( value, trueValue, score) {
-    return new MultipleChoice( value, trueValue, score);
+    return new MultipleChoice(value, trueValue, score);
   },
   radio: function( value, trueValue, score) {
     return new SingleChoice( value, trueValue, score);
