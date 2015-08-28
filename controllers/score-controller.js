@@ -4,18 +4,17 @@ var Sequelize = require('sequelize');
 var bodyParser = require('body-parser');
 var Type = models.Type;
 var Question = models.Question;
-//var answersInfos = [];
+
 function ScoreController() {}
 
 ScoreController.prototype.markExam = function(req, res, next) {
   var answersInfos = [];
   var answers = formAnswerArray(req.body);
-  completeAnswer(answers,answersInfos).then(function(data){
-   //console.log(data);
-   var score = new Score();
-   var result = score.getScore(data);
-   console.log(result);
-  })
+  completeAnswer(answers, answersInfos).then(function(data) {
+    console.log(data);
+    var score = new Score();
+    var result = score.getScore(data);
+  });
   res.send(answers);
 };
 
@@ -31,11 +30,11 @@ function formAnswerArray(obj) {
   return answer;
 }
 
-function completeAnswer(answers,answersInfos) {
+function completeAnswer(answers, answersInfos) {
   var questionIds = answers.map(function(val) {
     return val.questionId;
   });
-return  Question.findAll({
+  return Question.findAll({
     where: {
       id: {
         $in: questionIds
@@ -55,20 +54,22 @@ return  Question.findAll({
       text.score = val.dataValues.Type.dataValues.score;
       return text;
     });
-    //var answerInfo = [];
-    for (var i = 0; i < answers.length; i++) {
-      var obj = {};
-      obj.type = answers[i].type;
-      obj.questionId = answers[i].questionId;
-      obj.value = answers[i].value;
-      obj.trueValue = tests[i].trueValue;
-      obj.score = tests[i].score;
-      answersInfos.push(obj);
-    }
+    answersInfos = getAnswersInfos(answersInfos, texts, answers);
     return answersInfos;
   });
-  //return answersInfos;
 }
 
+function getAnswersInfos(answersInfos, trueAnswers, answers) {
+  for (var i = 0; i < answers.length; i++) {
+    var obj = {};
+    obj.type = answers[i].type;
+    obj.questionId = answers[i].questionId;
+    obj.value = answers[i].value;
+    obj.trueValue = tests[i].trueValue;
+    obj.score = tests[i].score;
+    answersInfos.push(obj);
+  }
+  return answersInfos;
+}
 
 module.exports = ScoreController;
