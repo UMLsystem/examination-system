@@ -1,15 +1,6 @@
 $(function() {
     $('table tbody tr').each(function(i) {
         $("tbody tr td:first-child")[i].innerHTML = i+1;
-        
-        var row = $("td", this);
-        var status = $(document.getElementsByName("status")[i]).data("status");
-
-        if (status === true) {
-            row.eq(2).text('已考');
-        } else {
-            row.eq(2).text('未考');
-        }
     });
 
     $('.check').on('click', function() {
