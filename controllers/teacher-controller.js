@@ -17,6 +17,11 @@ TeacherController.prototype.getList = function(req, res, next) {
         }]
     }).then(function(data) {
         return data.map(function(val) {
+            if(val.dataValues.status === true) {
+                val.dataValues.status = "已考";
+            }else {
+                val.dataValues.status = "未考";
+            }
             return val.dataValues;
         });
     }).done(function(data) {
