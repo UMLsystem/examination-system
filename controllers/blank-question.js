@@ -1,7 +1,4 @@
-function BlankQuestion(type, questionId, value, trueValue, score) {
-  this.type = type;
-  this.questionId = questionId;
-  this.value = value;
+function BlankQuestion(value, trueValue, score) {
   this.trueValue = trueValue;
   this.score = score;
 }

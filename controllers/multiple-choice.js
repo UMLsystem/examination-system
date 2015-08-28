@@ -1,6 +1,4 @@
-function MultipleChoice(type, questionId, value, trueValue, score) {
-  this.type = type;
-  this.questionId = questionId;
+function MultipleChoice(value, trueValue, score) {
   this.value = value;
   this.trueValue = trueValue;
   this.score = score;
