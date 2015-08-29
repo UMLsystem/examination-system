@@ -11,9 +11,9 @@ ScoreController.prototype.markExam = function(req, res, next) {
   var answersInfos = [];
   var answers = formAnswerArray(req.body);
   completeAnswer(answers, answersInfos).then(function(data) {
-    console.log(data);
     var score = new Score();
     var result = score.getScore(data);
+    console.log(result);
   });
   res.send(answers);
 };

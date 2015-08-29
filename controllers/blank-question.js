@@ -6,8 +6,6 @@ function BlankQuestion(value, trueValue, score) {
 
 BlankQuestion.prototype.mark = function() {
   var score = 0;
-  console.log(this.value);
-  console.log(this.trueValue);
   if (this.value === this.trueValue) {
     score = this.score;
   }
