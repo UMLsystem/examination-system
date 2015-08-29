@@ -7,7 +7,7 @@ $(function() {
       type: 'POST',
       success: function(resp) {
         alert(resp.result);
-        $('#score').html(resp.result);
+        $('#score').val(resp.result);
       }
     });
   });
