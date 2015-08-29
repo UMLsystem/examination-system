@@ -5,8 +5,9 @@ $(function() {
       url: '/score',
       data: answer,
       type: 'POST',
-      success: function(result) {
-        $('#score').html(result);
+      success: function(resp) {
+        alert(resp.result);
+        $('#score').html(resp.result);
       }
     });
   });
